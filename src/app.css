@@ -1,0 +1,107 @@
+@import '@fontsource/barlow/latin-400.css';
+@import '@fontsource/barlow/latin-500.css';
+@import '@fontsource/barlow/latin-600.css';
+@import '@fontsource/barlow-condensed/latin-600.css';
+@import '@fontsource/barlow-condensed/latin-700.css';
+@import '@fontsource/barlow-condensed/latin-800.css';
+
+:root {
+  --blu: #0164c6;
+  --blu-scuro: #073d8b;
+  --navy: #0b1a73;
+  --rosso: #d7141a;
+  --rosso-sole: #fc311d;
+  --accento-su-blu: #ff6656;
+  --crema: #faf9ee;
+  --linea: #d3e1f4;
+  --rosa: #ffb9b5;
+  --verde-prato: #bfddb0;
+  --suolo: #efebda;
+  --content: 1240px;
+  --gutter: clamp(1rem, 4vw, 1.5rem);
+  font-family: 'Barlow', system-ui, sans-serif;
+  color: var(--navy);
+  background: var(--crema);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  background: var(--crema);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--crema);
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #fff;
+  background: var(--rosso);
+}
+
+:focus-visible {
+  outline: 4px solid var(--rosso-sole);
+  outline-offset: 4px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: var(--blu);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--rosso);
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "reports": [
+    {
+      "width": 360,
+      "overflow": false,
+      "targets": [],
+      "violations": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "targets": [],
+      "violations": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "targets": [],
+      "violations": []
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "targets": [],
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "targets": [],
+      "violations": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,165 @@
+{
+  "siamo": [
+    "le migliaia di persone scese in piazza contro il genocidio di Gaza, per una Palestina libera.",
+    "i comitati che rivendicano il diritto a spiagge libere e a un mare accessibile.",
+    "i cittadini e le cittadine che difendono i propri territori da inquinamento e speculazione.",
+    "il movimento che si batte contro guerra, imperialismo e sionismo.",
+    "antifascist*, antirazzist* e antisessist* che si uniscono per difendere la singolarità di ogni individuo e la libertà di movimento.",
+    "lavoratori e lavoratrici che si ribellano a un mondo fatto di autoritarismo e sfruttamento."
+  ],
+  "acronimo": [
+    {
+      "letter": "M",
+      "word": "Mediterraneo",
+      "paras": [
+        "Il mare è l'elemento di cui ci sentiamo parte, che accomuna ogni essere vivente e avvolge tutte le terre emerse del pianeta: è ostinato, indomabile, necessario.",
+        "Siamo abitanti del Mediterraneo, ci opponiamo alla costruzione della fortezza europea e ai governi che trasformano il “nostro mare” nella frontiera più sorvegliata e più mortale del pianeta: chi tenta di salvare vite in mare viene ostacolato, criminalizzato, processato; chi fugge da guerre e carestie in cerca di una vita dignitosa, senza aver commesso alcun reato, viene rinchiuso nei CPR.",
+        "MAREA rivendica la libertà di movimento come strumento per restituire al Mediterraneo il ruolo che ha sempre svolto nella storia umana: uno spazio di scambio e di contaminazione, dove popoli e culture si sono incontrati per millenni, portando con sé corpi, storie, lingue, memorie di resistenza."
+      ]
+    },
+    {
+      "letter": "A",
+      "word": "Arte",
+      "paras": [
+        "L'arte non è decorazione del conflitto: è un linguaggio che attraversa i corpi, rompe il silenzio, produce immaginario collettivo. MAREAvillage vuole essere uno spazio creativo in cui arte e politica si alimentano a vicenda — concerti, performance, laboratori, installazioni che non separano l'estetica dall'etica.",
+        "Ci confrontiamo con artiste e artisti che si sentono parte del mondo e con la propria opera cercano di riflettere l'epoca in cui vivono e dare voce all'umanità. Vogliamo un'arte che prenda posizione contro il genocidio a Gaza, che si opponga al presente disumano e non accetti passivamente un futuro apocalittico."
+      ]
+    },
+    {
+      "letter": "R",
+      "word": "Resistenza",
+      "paras": [
+        "MAREAvillage ha la Palestina nel cuore: la resistenza palestinese rappresenta per noi l'ultimo argine contro la disumanizzazione del mondo. Crediamo che il popolo palestinese, con la sua implacabile voglia di vivere, con la sua ostinazione ad esistere, sia un esempio per tutti gli oppressi. Siamo al fianco della Palestina e della sua lotta di liberazione, perché ci riconosciamo come parte di un unico mondo."
+      ]
+    },
+    {
+      "letter": "E",
+      "word": "Ecologia",
+      "paras": [
+        "MAREA nasce a Bagnoli. MAREA nasce da Bagnoli.",
+        "Crediamo che il concetto di ecologia vada esteso a ogni ambito della nostra vita e a tutto lo spazio che ci circonda. Per questo non possiamo parlare di ecologia senza pensare a Bagnoli, il luogo in cui nasce il nostro “villaggio”.",
+        "Bagnoli si sviluppa intorno a un'enorme fabbrica siderurgica dismessa che per anni ha inquinato pesantemente il suolo e il mare, e da oltre trent'anni il quartiere si batte per una bonifica che non è mai arrivata.",
+        "Bagnoli si colloca inoltre in un'area sismica, e di recente ha subito violente scosse di terremoto che hanno causato lo sfollamento di centinaia di famiglie.",
+        "Bagnoli è stata indicata come sede dell'America's Cup, un mega evento imposto al territorio, che ignora i bisogni e i diritti dei suoi abitanti e favorisce la speculazione.",
+        "Riteniamo che questo quartiere sia solo un esempio di come vengono trattati i territori considerati sacrificabili: Bagnoli rappresenta uno dei tanti luoghi in cui sono evidenti tutte le contraddizioni che oggi riguardano l'ambiente, un laboratorio in cui riconoscere la logica di avvelenamento, depredazione e distruzione che accomuna ogni territorio."
+      ]
+    },
+    {
+      "letter": "A",
+      "word": "Azione",
+      "paras": [
+        "Il festival non è un punto di arrivo ma un momento di costruzione: MAREA si propone come luogo di incontro per le realtà e gli individui che vivono condizioni comuni e sono disposti a condividere la propria condizione e a unire le proprie energie. Per questo ci schieriamo dalla parte dei movimenti sociali e dei comitati ambientali. Siamo al fianco delle famiglie sfollate che pretendono il diritto a una casa e piani di sicurezza adeguati. Riteniamo il mare un bene comune, libero e collettivo, e ci opponiamo alla recinzione delle spiagge e alle logiche speculative.",
+        "MAREAvillage si struttura attorno ad assemblee, seminari e spazi tematici, aperti alla partecipazione di chiunque voglia portare il proprio contributo."
+      ]
+    }
+  ],
+  "luoghi": [
+    {
+      "id": "palco",
+      "n": 1,
+      "name": "Palco",
+      "what": "Fronte di oltre 60 metri, con amplificazione e sistema luci. Concerti / Live ogni sera."
+    },
+    {
+      "id": "areaL",
+      "n": 2,
+      "name": "Area L · destra",
+      "what": "Di fronte al Parco. Incontri, dibattiti e assemblee. Mostre: Between Gaza and Napoli, Falastin Hurra'."
+    },
+    {
+      "id": "palP",
+      "n": 3,
+      "name": "Palazzina P",
+      "what": "Mostre: Fabbrica di Eroi, Giustizia ambientale: il caso Bagnoli Coroglio, Ce verimm a' mmare."
+    },
+    {
+      "id": "teatro",
+      "n": 4,
+      "name": "Teatro · edificio G (SAP)",
+      "what": "Spettacoli e laboratorio di teatro."
+    },
+    {
+      "id": "bambini",
+      "n": 5,
+      "name": "La Marea dei Bambini",
+      "what": "Laboratori, giochi e spettacoli per bambine e bambini."
+    },
+    {
+      "id": "stand",
+      "n": 6,
+      "name": "Stand 0–9",
+      "what": "Infopoint, cibo e associazioni. Il workshop Tatreez è nel gazebo di Corto Circuito Flegreo."
+    },
+    {
+      "id": "bar",
+      "n": 7,
+      "name": "Gazebo birra bar",
+      "what": "Bar del festival."
+    },
+    {
+      "id": "info",
+      "n": 8,
+      "name": "Ingresso · Infopoint",
+      "what": "Ingresso dalla strada. Infopoint MAREA Festival."
+    }
+  ],
+  "stand": [
+    {
+      "n": "0",
+      "name": "Infopoint MAREA Festival"
+    },
+    {
+      "n": "1",
+      "name": "Cibo"
+    },
+    {
+      "n": "2",
+      "name": "Cibo"
+    },
+    {
+      "n": "3",
+      "name": "Corto Circuito Flegreo"
+    },
+    {
+      "n": "4",
+      "name": "Arteteka"
+    },
+    {
+      "n": "5",
+      "name": "Tangeri"
+    },
+    {
+      "n": "6",
+      "name": "Sensibili alle foglie"
+    },
+    {
+      "n": "7",
+      "name": "Mare Libero"
+    },
+    {
+      "n": "8",
+      "name": "Sanabel"
+    },
+    {
+      "n": "9",
+      "name": "Associazione Onda Sud"
+    }
+  ],
+  "adesioni": [
+    "Mediterranea Saving Humans",
+    "Arci Napoli",
+    "Corto Circuito Flegreo",
+    "Arteteka",
+    "Tangeri",
+    "Sensibili alle foglie",
+    "Mare Libero",
+    "Sanabel",
+    "RED – Rete Educazione Diffusa",
+    "Cooperativa sociale IL GECO",
+    "Medicina Democratica",
+    "Mov. disoccupati 7 Novembre",
+    "Comitato No America's Cup",
+    "BIN – Basic Income Network Italia",
+    "e altre realtà, reti e movimenti…"
+  ]
+}

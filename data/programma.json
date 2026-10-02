@@ -1,0 +1,300 @@
+{
+  "giorni": [
+    {
+      "id": "gio",
+      "name": "Giovedì",
+      "short": "Gio",
+      "num": 8
+    },
+    {
+      "id": "ven",
+      "name": "Venerdì",
+      "short": "Ven",
+      "num": 9
+    },
+    {
+      "id": "sab",
+      "name": "Sabato",
+      "short": "Sab",
+      "num": 10
+    },
+    {
+      "id": "dom",
+      "name": "Domenica",
+      "short": "Dom",
+      "num": 11
+    }
+  ],
+  "categorie": {
+    "incontri": "Incontri / Dibattiti",
+    "assemblee": "Assemblee",
+    "bambini": "La Marea dei Bambini",
+    "teatro": "Teatro / Spettacoli",
+    "laboratori": "Laboratori",
+    "live": "Concerti / Live"
+  },
+  "eventi": {
+    "gio": [
+      {
+        "cat": "laboratori",
+        "time": "16:00–18:00",
+        "title": "Anche il Tatreez è Sumud",
+        "lines": [
+          "Workshop “Anche il Tatreez è Sumud – Ricamo identitario delle donne palestinesi”",
+          "a cura del gruppo Tatreez di Villa Medusa"
+        ],
+        "place": "Gazebo di Corto Circuito Flegreo"
+      },
+      {
+        "cat": "incontri",
+        "time": "16:30–18:30",
+        "title": "Guerra e libertà di informazione",
+        "lines": [
+          "Conversazione con Mark Innaro",
+          "(ex corrispondente Rai dal Cairo e da Mosca)"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "incontri",
+        "time": "18:30–19:30",
+        "title": "Presentazione mostre",
+        "lines": [
+          "Between Gaza and Napoli · Falastin Hurra' · OFFSET"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "live",
+        "time": "dalle 20:00",
+        "names": [
+          "Pierpaolo Iermano",
+          "Andrea Tartaglia",
+          "Marzouk e Fanfara Station",
+          "ARS NOVA"
+        ]
+      }
+    ],
+    "ven": [
+      {
+        "cat": "bambini",
+        "time": "09:30–10:30",
+        "title": "Laboratorio “Immagina se tu... anzi, prova”",
+        "lines": [
+          "Spettacolo di danza contemporanea e sperimentazione dedicato alla tematica dell'autismo",
+          "con Red Fryk Hey"
+        ]
+      },
+      {
+        "cat": "bambini",
+        "time": "11:00–16:00",
+        "title": "Guarattelle",
+        "lines": [
+          "Spettacolo per bambini da 0 a 100 anni",
+          "Salvatore Gatto e Bruno Leone"
+        ]
+      },
+      {
+        "cat": "bambini",
+        "time": "16:00–18:00",
+        "title": "Colori e mani",
+        "lines": [
+          "Laboratorio di manipolazione"
+        ],
+        "place": "Sotto lo stand Arteteka"
+      },
+      {
+        "cat": "laboratori",
+        "time": "16:00–18:00",
+        "title": "Anche il Tatreez è Sumud",
+        "lines": [
+          "Workshop “Anche il Tatreez è Sumud – Ricamo identitario delle donne palestinesi”",
+          "a cura del gruppo Tatreez di Villa Medusa"
+        ],
+        "place": "Gazebo di Corto Circuito Flegreo"
+      },
+      {
+        "cat": "bambini",
+        "time": "16:30–18:30",
+        "title": "Rappresentazione di karate",
+        "lines": [
+          "con il Maestro Antonio Cicatiello"
+        ]
+      },
+      {
+        "cat": "incontri",
+        "time": "16:30–18:30",
+        "title": "“Nessun essere umano è illegale!”",
+        "lines": [
+          "Raccontiamo la violenza dei CPR e mobilitiamoci per chiuderli tutti.",
+          "Verso la manifestazione nazionale a Castelvolturno del 24 ottobre"
+        ],
+        "people": [
+          "Laura Marmorale e Donato Barbato (Mediterranea Saving Humans)",
+          "Lorenzo Figoni (avvocato e giornalista investigativo Action Aid)",
+          "Mimma D'Amico (movimento migranti Caserta)",
+          "Moussa Diakitè (movimento migranti e rifugiati di Napoli)",
+          "don Pino Natale (parroco di San Laise)",
+          "Pasquale Gallifuoco"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "incontri",
+        "time": "18:30–19:30",
+        "title": "Presentazione mostra Fabbrica di Eroi",
+        "lines": [
+          "Pensieri e foto di Massimo Velo",
+          "a cura di Lucia Sichenz",
+          "con Luciano Ferrara"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "teatro",
+        "time": "19:00–20:30",
+        "title": "L'ultima fotografia",
+        "lines": [
+          "Testo Roberto Andrioli · regia Fabrizio Checcacci"
+        ],
+        "place": "Teatro · edificio G (SAP)"
+      },
+      {
+        "cat": "live",
+        "time": "dalle 20:30",
+        "names": [
+          "Priscilla Drag Artivist (monologo)",
+          "Lino Vairetti (Osanna) e Massimo Mollo",
+          "Omar Suleiman",
+          "PS5",
+          "Psiche'"
+        ]
+      }
+    ],
+    "sab": [
+      {
+        "cat": "incontri",
+        "time": "10:00–12:00",
+        "title": "Napoli e il Sud: gli effetti della crisi",
+        "lines": [],
+        "people": [
+          "Pasquale Tridico (europarlamentare, già presidente INPS)",
+          "BIN – Basic Income Network Italia",
+          "Adolfo Fattori, sociologo",
+          "Eddy Sorge (Mov. disoccupati 7 Novembre - Comitato No America's Cup)",
+          "Paolo Fierro (Medicina Democratica)",
+          "Giacomo Smarrazzo (Gesco)"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "teatro",
+        "time": "10:00–12:00",
+        "title": "Danze popolari internazionali",
+        "lines": [
+          "Performance del Gruppo danze popolari internazionali di Villa Medusa"
+        ]
+      },
+      {
+        "cat": "bambini",
+        "time": "10:30–11:30",
+        "title": "Karate giocando",
+        "lines": [
+          "Mimmo Troia"
+        ]
+      },
+      {
+        "cat": "teatro",
+        "time": "10:30–13:00",
+        "title": "Mini laboratorio di teatro",
+        "lines": [
+          "a cura di Roberto Andrioli"
+        ],
+        "place": "Teatro · edificio G (SAP)"
+      },
+      {
+        "cat": "incontri",
+        "time": "15:30–16:10",
+        "title": "Sanabel · collegamento da Gaza",
+        "lines": [],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "bambini",
+        "time": "16:00–19:00",
+        "title": "Giochi di movimento",
+        "lines": [
+          "a cura di Arteteka"
+        ]
+      },
+      {
+        "cat": "bambini",
+        "time": "16:30–17:30",
+        "title": "Karate giocando",
+        "lines": [
+          "Mimmo Troia"
+        ]
+      },
+      {
+        "cat": "incontri",
+        "time": "16:30–19:30",
+        "title": "Contro militarismo e genocidio, per un manifesto di resistenza e libertà nel Mediterraneo",
+        "lines": [],
+        "people": [
+          "Francesca Albanese",
+          "Emiliano Brancaccio",
+          "Luciana Castellina",
+          "Luigi Daniele",
+          "Intervengono realtà di base, reti e movimenti sociali"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      },
+      {
+        "cat": "live",
+        "time": "dalle 20:00",
+        "names": [
+          "Bababoom Hi Fi",
+          "Full Sound System"
+        ]
+      }
+    ],
+    "dom": [
+      {
+        "cat": "assemblee",
+        "time": "10:30–13:30",
+        "title": "Assemblea pubblica",
+        "lines": [
+          "Dalla critica della America's Cup alla visione di una nuova città"
+        ],
+        "place": "Area L · destra, di fronte al Parco"
+      }
+    ]
+  },
+  "mostre": [
+    {
+      "title": "Between Gaza and Napoli",
+      "by": "di Mahmoud Abu Qaraya e Raffaele Annunziata aka tylerdurdan",
+      "place": "Area L · destra"
+    },
+    {
+      "title": "Falastin Hurra'",
+      "by": "Collettiva fumettisti e illustratori da e per la Palestina Libera",
+      "place": "Area L · destra"
+    },
+    {
+      "title": "Fabbrica di Eroi",
+      "by": "La fotografia di Massimo Velo, a cura di Lucia Sichenz",
+      "place": "Palazzina P"
+    },
+    {
+      "title": "Giustizia ambientale: il caso Bagnoli Coroglio",
+      "by": "a cura di Medicina Democratica",
+      "place": "Palazzina P"
+    },
+    {
+      "title": "Ce verimm a' mmare",
+      "by": "Mostra fotografica di Mattia Crocetti",
+      "place": "Palazzina P"
+    }
+  ]
+}

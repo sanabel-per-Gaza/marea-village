@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FAF9EE;color:#0B1A73;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0164C6;text-decoration:underline;text-underline-offset:3px}
+a:hover{color:#D7141A}
+*{box-sizing:border-box}
+@keyframes mareaWave{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mareaBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#FAF9EE">
+
+<nav style="position:sticky;top:0;z-index:20;background:#073D8B;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:6px clamp(16px,4vw,24px);display:flex;flex-wrap:wrap;align-items:center;column-gap:24px">
+    <a href="#top" style="display:flex;flex:none;padding:6px 0"><img src="assets/marea-logo.png" alt="MAREA Village" style="height:32px;width:auto;display:block"></a>
+    <div style="flex:1 1 300px;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      <div style="display:flex;gap:22px;width:max-content;margin-left:auto;font:700 17px 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">
+        <a href="#programma" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Programma</a>
+        <a href="#mostre" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Mostre</a>
+        <a href="#manifesto" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Manifesto</a>
+        <a href="#villaggio" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Il villaggio</a>
+        <a href="#sanabel" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Sanabel</a>
+        <a href="#info" style="color:#fff;text-decoration:none;padding:10px 0" style-hover="color:#FFB9B5">Info</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header id="top" data-screen-label="Hero" style="background:#0164C6;color:#fff;position:relative;overflow:hidden;min-height:calc(100vh - 54px);display:flex;flex-direction:column">
+  <div style="flex:1;width:100%;max-width:1240px;margin:0 auto;padding:clamp(40px,7vw,64px) clamp(16px,4vw,24px) 190px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center;position:relative;z-index:1">
+    <div>
+      <img src="assets/marea-logo.png" alt="MAREA Village" style="width:100%;max-width:640px;height:auto;display:block;filter:drop-shadow(7px 7px 0 #D7141A)">
+    </div>
+    <div style="max-width:540px">
+      <div style="font:800 clamp(88px,13vw,180px)/0.82 'Barlow Condensed',sans-serif;letter-spacing:-.02em;text-shadow:7px 7px 0 #D7141A">8—11</div>
+      <div style="font:800 clamp(38px,5vw,66px)/1 'Barlow Condensed',sans-serif;text-transform:uppercase;margin-top:14px;text-shadow:4px 4px 0 #D7141A">Ottobre 2026</div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:26px">
+        <sc-for list="{{ heroDays }}" as="d" hint-placeholder-count="4">
+          <a href="#programma" onClick="{{ d.select }}" style="display:flex;flex-direction:column;align-items:center;padding:10px 4px 8px;border:2px solid #fff;color:#fff;text-decoration:none;font:700 15px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.08em" style-hover="background:#fff;color:#D7141A">
+            <span>{{ d.short }}</span><span style="font-size:36px;font-weight:800;letter-spacing:0;margin-top:4px">{{ d.num }}</span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="font:800 clamp(22px,2.4vw,30px)/1.1 'Barlow Condensed',sans-serif;text-transform:uppercase;margin-top:24px;letter-spacing:.02em">Ex base NATO · Bagnoli · Napoli</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+        <a href="#programma" style="background:#D7141A;color:#fff;text-decoration:none;font:800 20px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.05em;padding:15px 26px;box-shadow:5px 5px 0 #073D8B" style-hover="background:#B00F14;color:#fff;box-shadow:2px 2px 0 #073D8B">Il programma</a>
+        <a href="#manifesto" style="background:#fff;color:#073D8B;text-decoration:none;font:800 20px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.05em;padding:15px 26px;box-shadow:5px 5px 0 #D7141A" style-hover="color:#073D8B;box-shadow:2px 2px 0 #D7141A">Il manifesto</a>
+      </div>
+    </div>
+  </div>
+  {{ heroWaves }}
+</header>
+{{ marquee }}
+
+<section id="programma" data-screen-label="Programma" style="padding:72px clamp(16px,4vw,24px) 40px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+      <h2 style="margin:0;font:800 clamp(48px,7vw,88px)/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#073D8B;text-shadow:5px 5px 0 #D7141A">Programma</h2>
+      <sc-if value="{{ nowActive }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;font:700 18px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.05em;color:#D7141A">
+          <span style="width:12px;height:12px;border-radius:50%;background:#D7141A"></span>
+          <span>Adesso al villaggio · {{ nowLabel }}</span>
+        </div>
+      </sc-if>
+    </div>
+
+    <div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,1.2vw,10px)">
+        <sc-for list="{{ dayTabs }}" as="d" hint-placeholder-count="4">
+          <button onClick="{{ d.select }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;padding:clamp(10px,1.6vw,16px) 4px;background:{{ d.bg }};color:{{ d.fg }};border:3px solid #D7141A;box-shadow:{{ d.shadow }};transform:{{ d.lift }};transition:transform .15s,box-shadow .15s;font:800 20px/1 'Barlow Condensed',sans-serif;text-transform:uppercase">
+            <span style="font-size:clamp(15px,1.8vw,20px);letter-spacing:.08em">{{ d.short }}</span><span style="font-size:clamp(36px,5vw,56px);line-height:.9">{{ d.num }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px">
+        <sc-for list="{{ catChips }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.select }}" style="all:unset;cursor:pointer;padding:12px 16px;border:2px solid #0164C6;background:{{ c.bg }};color:{{ c.fg }};font:600 16px/1 Barlow,sans-serif;border-radius:999px">{{ c.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:12px">
+        <sc-for list="{{ dayItems }}" as="item" hint-placeholder-count="5">
+          <sc-if value="{{ item.isLive }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#0164C6;color:#fff;padding:32px clamp(20px,4vw,40px);margin:20px 0;display:flex;flex-wrap:wrap;gap:12px 20px">
+              <div style="flex:0 0 130px"><span style="display:inline-block;background:#D7141A;color:#fff;font:700 18px/1 'Barlow Condensed',sans-serif;padding:7px 10px">{{ item.time }}</span></div>
+              <div style="flex:1 1 280px;min-width:0">
+                <div style="font:700 15px 'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.9">Concerti / Live · Palco</div>
+                <div style="display:flex;flex-direction:column;gap:2px;margin-top:8px">
+                  <sc-for list="{{ item.names }}" as="n" hint-placeholder-count="4">
+                    <div style="font:800 clamp(30px,4vw,48px)/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase">{{ n }}</div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ item.isNow }}" hint-placeholder-val="{{ false }}"><div style="margin-top:14px;display:inline-block;background:#fff;color:#D7141A;font:800 15px 'Barlow Condensed',sans-serif;letter-spacing:.1em;padding:4px 10px">ADESSO</div></sc-if>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ item.notLive }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-wrap:wrap;gap:12px 20px;padding:24px 16px;margin:0 -16px;border-top:2px solid #D3E1F4;transition:background .15s" style-hover="background:#fff">
+              <div style="flex:0 0 130px;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+                <span style="display:inline-block;background:#D7141A;color:#fff;font:700 18px/1 'Barlow Condensed',sans-serif;padding:7px 10px">{{ item.time }}</span>
+                <sc-if value="{{ item.isNow }}" hint-placeholder-val="{{ false }}"><span style="font:800 14px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#D7141A;border:2px solid #D7141A;padding:2px 8px">ADESSO</span></sc-if>
+              </div>
+              <div style="flex:1 1 280px;min-width:0">
+                <div style="font:700 14px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0164C6">{{ item.catLabel }}</div>
+                <h3 style="margin:4px 0 8px;font:800 clamp(24px,2.6vw,32px)/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0B1A73;text-wrap:pretty">{{ item.title }}</h3>
+                <div style="display:flex;flex-direction:column;gap:2px;font:400 17px/1.45 Barlow,sans-serif;color:#0B1A73;max-width:720px">
+                  <sc-for list="{{ item.lines }}" as="l" hint-placeholder-count="1"><div>{{ l }}</div></sc-for>
+                </div>
+                <sc-if value="{{ item.hasPeople }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:2px;margin-top:10px;padding-left:14px;border-left:3px solid #0164C6;font:500 16px/1.4 Barlow,sans-serif">
+                    <sc-for list="{{ item.people }}" as="p" hint-placeholder-count="3"><div>{{ p }}</div></sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ item.place }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:10px;font:600 15px Barlow,sans-serif;color:#0164C6">↳ {{ item.place }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+        </sc-for>
+        <sc-if value="{{ dayEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:40px 0;border-top:2px solid #D3E1F4;font:500 18px Barlow,sans-serif">Nessuna attività di questo tipo in questa giornata.</div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mostre" data-screen-label="Mostre" style="padding:40px clamp(16px,4vw,24px) 80px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+      <span style="background:#D7141A;color:#fff;font:800 22px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;padding:9px 14px">Tutti i giorni</span>
+    </div>
+    <h2 style="margin:12px 0 28px;font:800 clamp(40px,5.5vw,64px)/0.95 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#073D8B;text-shadow:4px 4px 0 #D7141A">Mostre / Esposizioni</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 40px">
+      <sc-for list="{{ mostre }}" as="m" hint-placeholder-count="5">
+        <div style="padding:20px 0;border-top:2px solid #D3E1F4">
+          <h3 style="margin:0 0 6px;font:800 26px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#0B1A73">{{ m.title }}</h3>
+          <div style="font:400 17px/1.45 Barlow,sans-serif">{{ m.by }}</div>
+          <div style="margin-top:8px;font:600 15px Barlow,sans-serif;color:#0164C6">↳ {{ m.place }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="manifesto" data-screen-label="Manifesto" style="background:#073D8B;color:#fff;padding:150px clamp(16px,4vw,24px) 160px;position:relative">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="position:absolute;left:0;top:-1px;width:100%;height:90px;display:block"><path d="M0 0 H1440 V30 Q1260 90 1080 50 T720 50 T360 50 T0 40Z" fill="#FAF9EE"></path></svg>
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="position:absolute;left:0;bottom:-1px;width:100%;height:90px;display:block"><path d="M0 100 H1440 V60 Q1260 10 1080 50 T720 50 T360 50 T0 60Z" fill="#FAF9EE"></path></svg>
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font:700 18px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#FFB9B5">Manifesto</div>
+    <h2 style="margin:10px 0 36px;font:800 clamp(36px,9vw,104px)/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;text-shadow:clamp(3px,.5vw,6px) clamp(3px,.5vw,6px) 0 #D7141A;overflow-wrap:anywhere">M.A.R.E.A.village</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:40px 64px">
+      <div style="display:flex;flex-direction:column;gap:18px;font:400 20px/1.55 Barlow,sans-serif;text-wrap:pretty">
+        <p style="margin:0;font-size:23px;font-weight:500">MAREAvillage è un festival di arte, cultura e politica organizzato dai comitati di Bagnoli e dai movimenti sociali napoletani, uniti dalla consapevolezza che solo navigando uniti è possibile tracciare nuove rotte. Si svolge nell'ex base NATO di Bagnoli, un'area strappata alla guerra, che rivendichiamo sia restituita alla città e sottratta alle logiche di privatizzazione e profitto. Fare festa, arte e politica dal basso, dove un tempo si pianificavano bombardamenti, è un primo atto di cambiamento.</p>
+        <p style="margin:0">MAREAvillage è uno spazio di confronto e trasformazione, nato per rompere gli steccati e le barriere che spesso ci portiamo dentro, per allargare i nostri orizzonti e creare nuove alleanze.</p>
+        <p style="margin:0">Per questo MAREA non si limita ai confini dell'area metropolitana di Napoli: vogliamo connetterci con le realtà che quotidianamente si battono contro un mondo fatto di barriere e violenza, e insieme costruire legami e reti che attraversino tutto il Mediterraneo.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ siamo }}" as="s" hint-placeholder-count="6">
+          <div style="font:600 clamp(21px,2vw,25px)/1.25 'Barlow Condensed',sans-serif;padding-bottom:14px;border-bottom:1px solid #2A5BA8"><span style="color:#FFB9B5;font-weight:800;text-transform:uppercase">Siamo</span> {{ s }}</div>
+        </sc-for>
+        <p style="margin:8px 0 0;font:400 19px/1.5 Barlow,sans-serif">Abbiamo deciso di unire le nostre forze per creare un momento di rottura con la realtà che stiamo vivendo, perché crediamo che questa non sia l'unica alternativa possibile.</p>
+      </div>
+    </div>
+    <div style="margin:64px 0 56px;font:800 clamp(44px,7vw,92px)/0.95 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff">La marea avanza… <span style="color:#FC311D">tuffati!</span></div>
+
+    <p style="margin:0 0 28px;max-width:760px;font:400 19px/1.5 Barlow,sans-serif">M.A.R.E.A. è anche un acronimo che contiene le iniziali delle parole e dei valori che riempiranno ogni attimo ed ogni spazio del MAREAvillage:</p>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ acronimo }}" as="a" hint-placeholder-count="5">
+        <div style="border-top:2px solid #2A5BA8">
+          <button onClick="{{ a.toggle }}" style="all:unset;cursor:pointer;width:100%;display:grid;grid-template-columns:minmax(0,clamp(48px,11vw,110px)) minmax(0,1fr) 32px;align-items:center;gap:16px;padding:18px 0;color:#fff">
+            <span style="font:800 clamp(52px,8vw,96px)/0.85 'Barlow Condensed',sans-serif;color:#FC311D">{{ a.letter }}</span>
+            <span style="font:800 clamp(26px,4vw,48px)/1 'Barlow Condensed',sans-serif;text-transform:uppercase;overflow-wrap:anywhere">{{ a.word }}</span>
+            <span style="font:700 34px/1 'Barlow Condensed',sans-serif;text-align:center">{{ a.sign }}</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 0 32px clamp(0px,calc(12vw - 20px),126px)">
+              <div style="display:flex;flex-direction:column;gap:14px;max-width:820px;font:400 19px/1.55 Barlow,sans-serif;text-wrap:pretty">
+                <sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="2"><p style="margin:0">{{ p }}</p></sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:56px;display:flex;flex-direction:column;gap:12px;font:700 clamp(24px,2.6vw,32px)/1.2 'Barlow Condensed',sans-serif;text-transform:uppercase;max-width:960px">
+      <div>MAREA è il movimento che rivela ciò che è sommerso e al suo passaggio produce cambiamento!</div>
+      <div style="color:#FFB9B5">MAREA è il ritmo di chi resiste, l'onda che non si arrende, il respiro collettivo di chi continua a restare umano!</div>
+    </div>
+  </div>
+</section>
+
+<section id="villaggio" data-screen-label="Il villaggio" style="padding:96px clamp(16px,4vw,24px) 80px">
+  <div style="max-width:1240px;margin:0 auto">
+    <h2 style="margin:0 0 12px;font:800 clamp(48px,7vw,88px)/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#073D8B;text-shadow:5px 5px 0 #D7141A">Il villaggio</h2>
+    <p style="margin:0 0 36px;max-width:760px;font:400 19px/1.5 Barlow,sans-serif">Disponiamo di un palco con un fronte di oltre 60 metri, con amplificazione e sistema luci adatto a grandi eventi. Altri spazi saranno dedicati a mostre, performance e laboratori di vario genere. Tutte le attività saranno realizzate con il lavoro volontario di centinaia di attiviste e attivisti.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:20px;align-items:start">
+      <div style="background:#fff;border:3px solid #073D8B;box-shadow:8px 8px 0 #D7141A;position:relative">
+        <svg viewBox="0 0 1272 1096" style="display:block;width:100%;height:auto" role="img" aria-label="Mappa del villaggio MAREA">
+          <rect x="0" y="0" width="1272" height="1096" fill="#EFEBDA"></rect>
+          <rect x="0" y="985" width="1272" height="111" fill="#D9D3BE"></rect>
+          <text x="1240" y="1050" text-anchor="end" fill="#073D8B" style="font:700 26px 'Barlow Condensed',sans-serif;letter-spacing:4px">STRADA</text>
+          <rect x="430" y="25" width="285" height="110" fill="#B9CBE6"></rect>
+          <rect x="325" y="130" width="440" height="150" fill="#B9CBE6"></rect>
+          <rect x="340" y="298" width="455" height="112" fill="#E2DBC4"></rect>
+          <rect x="368" y="412" width="192" height="200" fill="#BFDDB0"></rect>
+          <rect x="630" y="412" width="192" height="200" fill="#BFDDB0"></rect>
+          <rect x="400" y="648" width="160" height="215" fill="{{ f.bambini }}"></rect>
+          <rect x="660" y="648" width="180" height="215" fill="#BFDDB0"></rect>
+          <line x1="372" y1="485" x2="560" y2="580" stroke="#EFEBDA" stroke-width="14"></line>
+          <line x1="818" y1="430" x2="630" y2="580" stroke="#EFEBDA" stroke-width="14"></line>
+          <line x1="420" y1="800" x2="560" y2="660" stroke="#EFEBDA" stroke-width="14"></line>
+          <line x1="838" y1="730" x2="660" y2="655" stroke="#EFEBDA" stroke-width="14"></line>
+          <circle cx="612" cy="610" r="44" fill="#E2DBC4"></circle>
+          <text x="612" y="534" text-anchor="middle" fill="#2E6B2E" style="font:700 24px 'Barlow Condensed',sans-serif;letter-spacing:3px">PARCO SAN LAISE</text>
+          <g onClick="{{ pick.teatro }}" style="cursor:pointer"><rect x="20" y="372" width="335" height="263" fill="{{ f.teatro }}"></rect><rect x="20" y="465" width="270" height="85" fill="#EFEBDA"></rect></g>
+          <rect x="72" y="688" width="328" height="262" fill="#B9CBE6"></rect><rect x="90" y="780" width="240" height="80" fill="#EFEBDA"></rect>
+          <g onClick="{{ pick.areaL }}" style="cursor:pointer"><rect x="815" y="255" width="325" height="270" fill="{{ f.areaL }}"></rect><rect x="875" y="345" width="265" height="70" fill="#EFEBDA"></rect></g>
+          <g onClick="{{ pick.palP }}" style="cursor:pointer"><rect x="860" y="572" width="325" height="263" fill="{{ f.palP }}"></rect><rect x="905" y="650" width="280" height="85" fill="#EFEBDA"></rect></g>
+          <g onClick="{{ pick.palco }}" style="cursor:pointer"><rect x="380" y="318" width="360" height="62" fill="{{ f.palco }}"></rect></g>
+          <g onClick="{{ pick.bar }}" style="cursor:pointer"><rect x="752" y="322" width="56" height="56" fill="{{ f.bar }}"></rect></g>
+          <g onClick="{{ pick.stand }}" style="cursor:pointer"><rect x="548" y="672" width="30" height="30" fill="{{ f.stand }}"></rect><text x="563" y="694" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">0</text><rect x="548" y="710" width="30" height="30" fill="{{ f.stand }}"></rect><text x="563" y="732" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">1</text><rect x="548" y="748" width="30" height="30" fill="{{ f.stand }}"></rect><text x="563" y="770" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">2</text><rect x="548" y="786" width="30" height="30" fill="{{ f.stand }}"></rect><text x="563" y="808" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">3</text><rect x="548" y="824" width="30" height="30" fill="{{ f.stand }}"></rect><text x="563" y="846" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">4</text><rect x="662" y="672" width="30" height="30" fill="{{ f.stand }}"></rect><text x="677" y="694" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">5</text><rect x="662" y="710" width="30" height="30" fill="{{ f.stand }}"></rect><text x="677" y="732" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">6</text><rect x="662" y="748" width="30" height="30" fill="{{ f.stand }}"></rect><text x="677" y="770" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">7</text><rect x="662" y="786" width="30" height="30" fill="{{ f.stand }}"></rect><text x="677" y="808" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">8</text><rect x="662" y="824" width="30" height="30" fill="{{ f.stand }}"></rect><text x="677" y="846" text-anchor="middle" fill="#fff" style="font:700 19px 'Barlow Condensed',sans-serif;pointer-events:none">9</text></g>
+          <g onClick="{{ pick.info }}" style="cursor:pointer"><rect x="612" y="880" width="90" height="56" fill="{{ f.info }}"></rect></g>
+          <path d="M657 985 L637 955 L677 955 Z" fill="#073D8B"></path>
+          <g onClick="{{ pick.palco }}" style="cursor:pointer"><circle cx="470" cy="349" r="36" fill="#FAF9EE"></circle><circle cx="470" cy="349" r="30" fill="{{ mk.palco }}"></circle><text x="470" y="359.8" text-anchor="middle" fill="#fff" style="font:800 33px 'Barlow Condensed',sans-serif;pointer-events:none">1</text></g>
+          <g onClick="{{ pick.areaL }}" style="cursor:pointer"><circle cx="978" cy="470" r="36" fill="#FAF9EE"></circle><circle cx="978" cy="470" r="30" fill="{{ mk.areaL }}"></circle><text x="978" y="480.8" text-anchor="middle" fill="#fff" style="font:800 33px 'Barlow Condensed',sans-serif;pointer-events:none">2</text></g>
+          <g onClick="{{ pick.palP }}" style="cursor:pointer"><circle cx="1022" cy="780" r="36" fill="#FAF9EE"></circle><circle cx="1022" cy="780" r="30" fill="{{ mk.palP }}"></circle><text x="1022" y="790.8" text-anchor="middle" fill="#fff" style="font:800 33px 'Barlow Condensed',sans-serif;pointer-events:none">3</text></g>
+          <g onClick="{{ pick.teatro }}" style="cursor:pointer"><circle cx="188" cy="592" r="36" fill="#FAF9EE"></circle><circle cx="188" cy="592" r="30" fill="{{ mk.teatro }}"></circle><text x="188" y="602.8" text-anchor="middle" fill="#fff" style="font:800 33px 'Barlow Condensed',sans-serif;pointer-events:none">4</text></g>
+          <g onClick="{{ pick.bambini }}" style="cursor:pointer"><circle cx="470" cy="830" r="36" fill="#FAF9EE"></circle><circle cx="470" cy="830" r="30" fill="{{ mk.bambini }}"></circle><text x="470" y="840.8" text-anchor="middle" fill="#fff" style="font:800 33px 'Barlow Condensed',sans-serif;pointer-events:none">5</text></g>
+          <g onClick="{{ pick.stand }}" style="cursor:pointer"><circle cx="612" cy="760" r="30" fill="#FAF9EE"></circle><circle cx="612" cy="760" r="24" fill="{{ mk.stand }}"></circle><text x="612" y="768.64" text-anchor="middle" fill="#fff" style="font:800 26px 'Barlow Condensed',sans-serif;pointer-events:none">6</text></g>
+          <g onClick="{{ pick.bar }}" style="cursor:pointer"><circle cx="780" cy="350" r="28" fill="#FAF9EE"></circle><circle cx="780" cy="350" r="22" fill="{{ mk.bar }}"></circle><text x="780" y="357.92" text-anchor="middle" fill="#fff" style="font:800 24px 'Barlow Condensed',sans-serif;pointer-events:none">7</text></g>
+          <g onClick="{{ pick.info }}" style="cursor:pointer"><circle cx="760" cy="908" r="30" fill="#FAF9EE"></circle><circle cx="760" cy="908" r="24" fill="{{ mk.info }}"></circle><text x="760" y="916.64" text-anchor="middle" fill="#fff" style="font:800 26px 'Barlow Condensed',sans-serif;pointer-events:none">8</text></g>
+        </svg>
+        <div style="position:absolute;left:10px;top:10px;background:#D7141A;color:#fff;font:700 13px 'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px">Mappa schematica · posizioni da confermare</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:#073D8B;color:#fff;padding:22px">
+          <div style="font:800 28px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase">{{ sel.name }}</div>
+          <div style="margin-top:8px;font:400 16px/1.45 Barlow,sans-serif">{{ sel.what }}</div>
+          <sc-if value="{{ sel.hasEvents }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;font:700 14px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#FFB9B5">{{ sel.dayLabel }}</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <sc-for list="{{ sel.events }}" as="e" hint-placeholder-count="2">
+                <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;background:#D7141A;font:700 14px/1 'Barlow Condensed',sans-serif;padding:4px 6px">{{ e.time }}</span><span style="font:700 17px/1.2 'Barlow Condensed',sans-serif;text-transform:uppercase">{{ e.title }}</span></div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ places }}" as="p" hint-placeholder-count="8">
+            <button onClick="{{ p.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;min-height:44px;box-sizing:border-box;background:{{ p.bg }};color:{{ p.fg }};border:2px solid {{ p.border }}" style-hover="background:#fff">
+              <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#D7141A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 18px/1 'Barlow Condensed',sans-serif">{{ p.n }}</span>
+              <span style="font:800 18px/1.1 'Barlow Condensed',sans-serif;text-transform:uppercase">{{ p.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin:56px 0 16px;font:800 32px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#073D8B">Stand</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0 32px">
+      <sc-for list="{{ stand }}" as="s" hint-placeholder-count="10">
+        <div style="display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:2px solid #D3E1F4">
+          <span style="flex:none;width:30px;font:800 22px/1 'Barlow Condensed',sans-serif;color:#D7141A">{{ s.n }}</span>
+          <span style="font:600 18px/1.3 Barlow,sans-serif">{{ s.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="sanabel" data-screen-label="Sanabel" style="padding:0 clamp(16px,4vw,24px) 96px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));background:#D7141A;color:#fff">
+    <div style="padding:clamp(28px,5vw,64px)">
+      <div style="font:700 18px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase">Il ricavato del festival</div>
+      <h2 style="margin:10px 0 24px;font:800 clamp(56px,8vw,104px)/0.9 'Barlow Condensed',sans-serif;text-transform:uppercase;text-shadow:6px 6px 0 #073D8B">Sanabel</h2>
+      <p style="margin:0;font:400 20px/1.55 Barlow,sans-serif;max-width:560px;text-wrap:pretty">Il ricavato del festival sarà devoluto a Sanabel, associazione nata tra Palestina e Italia, che fornisce assistenza a bambini autistici e neurodivergenti di Gaza. In un territorio dove la guerra ha distrutto tutte le reti di cura, il lavoro di Sanabel è resistenza quotidiana. Sostenerla è una scelta concreta di umanità.</p>
+      <div style="margin-top:28px;font:600 17px/1.4 Barlow,sans-serif">Sabato 10 ottobre, 15:30 · Sanabel, collegamento da Gaza</div>
+    </div>
+    <div style="background:#FBFBEF;display:flex;align-items:center;justify-content:center;padding:24px;min-height:360px">
+      <img src="assets/boat.png" alt="" style="max-height:440px;max-width:100%;height:auto;display:block">
+    </div>
+  </div>
+</section>
+
+<section id="info" data-screen-label="Info e adesioni" style="background:#0164C6;color:#fff;position:relative;padding:150px clamp(16px,4vw,24px) 64px">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="position:absolute;left:0;top:-1px;width:100%;height:110px;display:block">
+    <path d="M0 0 H1440 V40 C1200 90 960 10 720 50 S240 100 0 40Z" fill="#FAF9EE"></path>
+  </svg>
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:40px">
+      <div>
+        <div style="font:700 16px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#D6E6FA">Quando</div>
+        <div style="margin-top:8px;font:800 36px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase">8 — 11 ottobre 2026</div>
+      </div>
+      <div>
+        <div style="font:700 16px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#D6E6FA">Dove</div>
+        <div style="margin-top:8px;font:800 36px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase">Ex base NATO<br>Bagnoli · Napoli</div>
+      </div>
+    </div>
+    <div style="margin-top:64px;padding-top:28px;border-top:2px solid #3B86D6">
+      <div style="font:700 16px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#D6E6FA">Adesioni</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font:600 18px/1.4 Barlow,sans-serif">
+        <sc-for list="{{ adesioni }}" as="a" hint-placeholder-count="14"><span>{{ a }}</span></sc-for>
+      </div>
+    </div>
+    <div style="margin-top:72px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+      <img src="assets/marea-logo.png" alt="MAREA Village" style="width:260px;height:auto;display:block">
+      <div style="font:600 15px Barlow,sans-serif;color:#D6E6FA">MAREAvillage 2026</div>
+    </div>
+  </div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;simulaOra&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;reale&quot;,&quot;sabato 17:00&quot;,&quot;venerdì 21:00&quot;],&quot;default&quot;:&quot;reale&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Programma&quot;}}">
+const DAYS = [
+  { id: 'gio', name: 'Giovedì', short: 'Gio', num: 8 },
+  { id: 'ven', name: 'Venerdì', short: 'Ven', num: 9 },
+  { id: 'sab', name: 'Sabato', short: 'Sab', num: 10 },
+  { id: 'dom', name: 'Domenica', short: 'Dom', num: 11 },
+];
+const CATS = { incontri: 'Incontri / Dibattiti', assemblee: 'Assemblee', bambini: 'La Marea dei Bambini', teatro: 'Teatro / Spettacoli', laboratori: 'Laboratori', live: 'Concerti / Live' };
+const AREA_L = 'Area L · destra, di fronte al Parco';
+const TEATRO = 'Teatro · edificio G (SAP)';
+const TATREEZ = { cat: 'laboratori', time: '16:00–18:00', title: 'Anche il Tatreez è Sumud', lines: ['Workshop “Anche il Tatreez è Sumud – Ricamo identitario delle donne palestinesi”', 'a cura del gruppo Tatreez di Villa Medusa'], place: 'Gazebo di Corto Circuito Flegreo' };
+const EVENTS = {
+  gio: [
+    TATREEZ,
+    { cat: 'incontri', time: '16:30–18:30', title: 'Guerra e libertà di informazione', lines: ['Conversazione con Mark Innaro', '(ex corrispondente Rai dal Cairo e da Mosca)'], place: AREA_L },
+    { cat: 'incontri', time: '18:30–19:30', title: 'Presentazione mostre', lines: ["Between Gaza and Napoli · Falastin Hurra' · OFFSET"], place: AREA_L },
+    { cat: 'live', time: 'dalle 20:00', names: ['Pierpaolo Iermano', 'Andrea Tartaglia', 'Marzouk e Fanfara Station', 'ARS NOVA'] },
+  ],
+  ven: [
+    { cat: 'bambini', time: '09:30–10:30', title: 'Laboratorio “Immagina se tu... anzi, prova”', lines: ["Spettacolo di danza contemporanea e sperimentazione dedicato alla tematica dell'autismo", 'con Red Fryk Hey'] },
+    { cat: 'bambini', time: '11:00–16:00', title: 'Guarattelle', lines: ['Spettacolo per bambini da 0 a 100 anni', 'Salvatore Gatto e Bruno Leone'] },
+    { cat: 'bambini', time: '16:00–18:00', title: 'Colori e mani', lines: ['Laboratorio di manipolazione'], place: 'Sotto lo stand Arteteka' },
+    TATREEZ,
+    { cat: 'bambini', time: '16:30–18:30', title: 'Rappresentazione di karate', lines: ['con il Maestro Antonio Cicatiello'] },
+    { cat: 'incontri', time: '16:30–18:30', title: '“Nessun essere umano è illegale!”', lines: ['Raccontiamo la violenza dei CPR e mobilitiamoci per chiuderli tutti.', 'Verso la manifestazione nazionale a Castelvolturno del 24 ottobre'], people: ['Laura Marmorale e Donato Barbato (Mediterranea Saving Humans)', 'Lorenzo Figoni (avvocato e giornalista investigativo Action Aid)', "Mimma D'Amico (movimento migranti Caserta)", 'Moussa Diakitè (movimento migranti e rifugiati di Napoli)', 'don Pino Natale (parroco di San Laise)', 'Pasquale Gallifuoco'], place: AREA_L },
+    { cat: 'incontri', time: '18:30–19:30', title: 'Presentazione mostra Fabbrica di Eroi', lines: ['Pensieri e foto di Massimo Velo', 'a cura di Lucia Sichenz', 'con Luciano Ferrara'], place: AREA_L },
+    { cat: 'teatro', time: '19:00–20:30', title: "L'ultima fotografia", lines: ['Testo Roberto Andrioli · regia Fabrizio Checcacci'], place: TEATRO },
+    { cat: 'live', time: 'dalle 20:30', names: ['Priscilla Drag Artivist (monologo)', 'Lino Vairetti (Osanna) e Massimo Mollo', 'Omar Suleiman', 'PS5', "Psiche'"] },
+  ],
+  sab: [
+    { cat: 'incontri', time: '10:00–12:00', title: 'Napoli e il Sud: gli effetti della crisi', lines: [], people: ['Pasquale Tridico (europarlamentare, già presidente INPS)', 'BIN – Basic Income Network Italia', 'Adolfo Fattori, sociologo', "Eddy Sorge (Mov. disoccupati 7 Novembre - Comitato No America's Cup)", 'Paolo Fierro (Medicina Democratica)', 'Giacomo Smarrazzo (Gesco)'], place: AREA_L },
+    { cat: 'teatro', time: '10:00–12:00', title: 'Danze popolari internazionali', lines: ['Performance del Gruppo danze popolari internazionali di Villa Medusa'] },
+    { cat: 'bambini', time: '10:30–11:30', title: 'Karate giocando', lines: ['Mimmo Troia'] },
+    { cat: 'teatro', time: '10:30–13:00', title: 'Mini laboratorio di teatro', lines: ['a cura di Roberto Andrioli'], place: TEATRO },
+    { cat: 'incontri', time: '15:30–16:10', title: 'Sanabel · collegamento da Gaza', lines: [], place: AREA_L },
+    { cat: 'bambini', time: '16:00–19:00', title: 'Giochi di movimento', lines: ['a cura di Arteteka'] },
+    { cat: 'bambini', time: '16:30–17:30', title: 'Karate giocando', lines: ['Mimmo Troia'] },
+    { cat: 'incontri', time: '16:30–19:30', title: 'Contro militarismo e genocidio, per un manifesto di resistenza e libertà nel Mediterraneo', lines: [], people: ['Francesca Albanese', 'Emiliano Brancaccio', 'Luciana Castellina', 'Luigi Daniele', 'Intervengono realtà di base, reti e movimenti sociali'], place: AREA_L },
+    { cat: 'live', time: 'dalle 20:00', names: ['Bababoom Hi Fi', 'Full Sound System'] },
+  ],
+  dom: [
+    { cat: 'assemblee', time: '10:30–13:30', title: 'Assemblea pubblica', lines: ["Dalla critica della America's Cup alla visione di una nuova città"], place: AREA_L },
+  ],
+};
+const toMin = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+const range = t => { const m = t.match(/(\d{1,2}:\d{2})(?:\s*[–-]\s*(\d{1,2}:\d{2}))?/); const a = toMin(m[1]); return [a, m[2] ? toMin(m[2]) : 24 * 60]; };
+const sortKey = e => range(e.time)[0];
+
+const MOSTRE = [
+  { title: 'Between Gaza and Napoli', by: 'di Mahmoud Abu Qaraya e Raffaele Annunziata aka tylerdurdan', place: 'Area L · destra' },
+  { title: "Falastin Hurra'", by: 'Collettiva fumettisti e illustratori da e per la Palestina Libera', place: 'Area L · destra' },
+  { title: 'Fabbrica di Eroi', by: 'La fotografia di Massimo Velo, a cura di Lucia Sichenz', place: 'Palazzina P' },
+  { title: 'Giustizia ambientale: il caso Bagnoli Coroglio', by: 'a cura di Medicina Democratica', place: 'Palazzina P' },
+  { title: "Ce verimm a' mmare", by: 'Mostra fotografica di Mattia Crocetti', place: 'Palazzina P' },
+];
+const SIAMO = [
+  'le migliaia di persone scese in piazza contro il genocidio di Gaza, per una Palestina libera.',
+  'i comitati che rivendicano il diritto a spiagge libere e a un mare accessibile.',
+  'i cittadini e le cittadine che difendono i propri territori da inquinamento e speculazione.',
+  'il movimento che si batte contro guerra, imperialismo e sionismo.',
+  "antifascist*, antirazzist* e antisessist* che si uniscono per difendere la singolarità di ogni individuo e la libertà di movimento.",
+  'lavoratori e lavoratrici che si ribellano a un mondo fatto di autoritarismo e sfruttamento.',
+];
+const ACRONIMO = [
+  { letter: 'M', word: 'Mediterraneo', paras: [
+    "Il mare è l'elemento di cui ci sentiamo parte, che accomuna ogni essere vivente e avvolge tutte le terre emerse del pianeta: è ostinato, indomabile, necessario.",
+    'Siamo abitanti del Mediterraneo, ci opponiamo alla costruzione della fortezza europea e ai governi che trasformano il “nostro mare” nella frontiera più sorvegliata e più mortale del pianeta: chi tenta di salvare vite in mare viene ostacolato, criminalizzato, processato; chi fugge da guerre e carestie in cerca di una vita dignitosa, senza aver commesso alcun reato, viene rinchiuso nei CPR.',
+    'MAREA rivendica la libertà di movimento come strumento per restituire al Mediterraneo il ruolo che ha sempre svolto nella storia umana: uno spazio di scambio e di contaminazione, dove popoli e culture si sono incontrati per millenni, portando con sé corpi, storie, lingue, memorie di resistenza.'] },
+  { letter: 'A', word: 'Arte', paras: [
+    "L'arte non è decorazione del conflitto: è un linguaggio che attraversa i corpi, rompe il silenzio, produce immaginario collettivo. MAREAvillage vuole essere uno spazio creativo in cui arte e politica si alimentano a vicenda — concerti, performance, laboratori, installazioni che non separano l'estetica dall'etica.",
+    "Ci confrontiamo con artiste e artisti che si sentono parte del mondo e con la propria opera cercano di riflettere l'epoca in cui vivono e dare voce all'umanità. Vogliamo un'arte che prenda posizione contro il genocidio a Gaza, che si opponga al presente disumano e non accetti passivamente un futuro apocalittico."] },
+  { letter: 'R', word: 'Resistenza', paras: [
+    "MAREAvillage ha la Palestina nel cuore: la resistenza palestinese rappresenta per noi l'ultimo argine contro la disumanizzazione del mondo. Crediamo che il popolo palestinese, con la sua implacabile voglia di vivere, con la sua ostinazione ad esistere, sia un esempio per tutti gli oppressi. Siamo al fianco della Palestina e della sua lotta di liberazione, perché ci riconosciamo come parte di un unico mondo."] },
+  { letter: 'E', word: 'Ecologia', paras: [
+    'MAREA nasce a Bagnoli. MAREA nasce da Bagnoli.',
+    'Crediamo che il concetto di ecologia vada esteso a ogni ambito della nostra vita e a tutto lo spazio che ci circonda. Per questo non possiamo parlare di ecologia senza pensare a Bagnoli, il luogo in cui nasce il nostro “villaggio”.',
+    "Bagnoli si sviluppa intorno a un'enorme fabbrica siderurgica dismessa che per anni ha inquinato pesantemente il suolo e il mare, e da oltre trent'anni il quartiere si batte per una bonifica che non è mai arrivata.",
+    "Bagnoli si colloca inoltre in un'area sismica, e di recente ha subito violente scosse di terremoto che hanno causato lo sfollamento di centinaia di famiglie.",
+    "Bagnoli è stata indicata come sede dell'America's Cup, un mega evento imposto al territorio, che ignora i bisogni e i diritti dei suoi abitanti e favorisce la speculazione.",
+    "Riteniamo che questo quartiere sia solo un esempio di come vengono trattati i territori considerati sacrificabili: Bagnoli rappresenta uno dei tanti luoghi in cui sono evidenti tutte le contraddizioni che oggi riguardano l'ambiente, un laboratorio in cui riconoscere la logica di avvelenamento, depredazione e distruzione che accomuna ogni territorio."] },
+  { letter: 'A', word: 'Azione', paras: [
+    'Il festival non è un punto di arrivo ma un momento di costruzione: MAREA si propone come luogo di incontro per le realtà e gli individui che vivono condizioni comuni e sono disposti a condividere la propria condizione e a unire le proprie energie. Per questo ci schieriamo dalla parte dei movimenti sociali e dei comitati ambientali. Siamo al fianco delle famiglie sfollate che pretendono il diritto a una casa e piani di sicurezza adeguati. Riteniamo il mare un bene comune, libero e collettivo, e ci opponiamo alla recinzione delle spiagge e alle logiche speculative.',
+    "MAREAvillage si struttura attorno ad assemblee, seminari e spazi tematici, aperti alla partecipazione di chiunque voglia portare il proprio contributo."] },
+];
+const PLACES = [
+  { id: 'palco', n: 1, name: 'Palco', what: 'Fronte di oltre 60 metri, con amplificazione e sistema luci. Concerti / Live ogni sera.', match: e => e.cat === 'live' },
+  { id: 'areaL', n: 2, name: 'Area L · destra', what: "Di fronte al Parco. Incontri, dibattiti e assemblee. Mostre: Between Gaza and Napoli, Falastin Hurra'.", match: e => e.place === AREA_L },
+  { id: 'palP', n: 3, name: 'Palazzina P', what: "Mostre: Fabbrica di Eroi, Giustizia ambientale: il caso Bagnoli Coroglio, Ce verimm a' mmare." },
+  { id: 'teatro', n: 4, name: 'Teatro · edificio G (SAP)', what: 'Spettacoli e laboratorio di teatro.', match: e => e.place === TEATRO },
+  { id: 'bambini', n: 5, name: 'La Marea dei Bambini', what: 'Laboratori, giochi e spettacoli per bambine e bambini.', match: e => e.cat === 'bambini' },
+  { id: 'stand', n: 6, name: 'Stand 0–9', what: 'Infopoint, cibo e associazioni. Il workshop Tatreez è nel gazebo di Corto Circuito Flegreo.', match: e => e.cat === 'laboratori' },
+  { id: 'bar', n: 7, name: 'Gazebo birra bar', what: 'Bar del festival.' },
+  { id: 'info', n: 8, name: 'Ingresso · Infopoint', what: 'Ingresso dalla strada. Infopoint MAREA Festival.' },
+];
+const SPAZI = [
+  { name: 'Palco', what: 'Concerti / Live, ogni sera' },
+  { name: 'Area L · destra', what: 'Di fronte al Parco. Incontri, dibattiti, assemblee e mostre' },
+  { name: 'Palazzina P', what: 'Mostre / esposizioni' },
+  { name: 'Teatro · edificio G (SAP)', what: 'Spettacoli e laboratorio di teatro' },
+  { name: 'Gazebo birra bar', what: 'Bar del festival' },
+];
+const STAND = [
+  ['0', 'Infopoint MAREA Festival'], ['1', 'Cibo'], ['2', 'Cibo'], ['3', 'Corto Circuito Flegreo'], ['4', 'Arteteka'],
+  ['5', 'Tangeri'], ['6', 'Sensibili alle foglie'], ['7', 'Mare Libero'], ['8', 'Sanabel'], ['9', 'Associazione Onda Sud'],
+].map(([n, name]) => ({ n, name }));
+const ADESIONI = ['Mediterranea Saving Humans', 'Arci Napoli', 'Corto Circuito Flegreo', 'Arteteka', 'Tangeri', 'Sensibili alle foglie', 'Mare Libero', 'Sanabel', 'RED – Rete Educazione Diffusa', 'Cooperativa sociale IL GECO', 'Medicina Democratica', 'Mov. disoccupati 7 Novembre', "Comitato No America's Cup", 'BIN – Basic Income Network Italia', 'e altre realtà, reti e movimenti…'];
+
+function romeNow() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date()).map(x => [x.type, x.value]));
+  if (p.year !== '2026' || p.month !== '10') return null;
+  const d = DAYS.find(x => x.num === +p.day);
+  return d ? { day: d.id, min: +p.hour * 60 + +p.minute } : null;
+}
+
+class Component extends DCLogic {
+  state = { day: null, cat: 'tutto', open: { 0: true }, place: 'palco' };
+
+  mapVals(day) {
+    const selId = this.state.place;
+    const base = { teatro: '#0164C6', areaL: '#0164C6', palP: '#0164C6', palco: '#073D8B', bar: '#073D8B', stand: '#073D8B', info: '#073D8B', bambini: '#BFDDB0' };
+    const f = {}, mk = {}, pick = {};
+    for (const k in base) { f[k] = k === selId ? (k === 'bambini' ? '#F6B3AE' : '#D7141A') : base[k]; mk[k] = k === selId ? '#073D8B' : '#D7141A'; pick[k] = () => this.setState({ place: k }); }
+    const P = PLACES.find(p => p.id === selId);
+    const d = DAYS.find(x => x.id === day);
+    const events = P.match ? [...EVENTS[day]].filter(P.match).sort((a, b) => sortKey(a) - sortKey(b)).map(e => ({ time: e.time, title: e.cat === 'live' ? 'Concerti / Live' : e.title })) : [];
+    return {
+      f, mk, pick,
+      places: PLACES.map(p => ({ n: p.n, name: p.name, bg: p.id === selId ? '#fff' : 'transparent', fg: p.id === selId ? '#D7141A' : '#0B1A73', border: p.id === selId ? '#D7141A' : '#D3E1F4', select: () => this.setState({ place: p.id }) })),
+      sel: { name: P.name, what: P.what, events, hasEvents: events.length > 0, dayLabel: `${d.name} ${d.num} ottobre` },
+    };
+  }
+
+  getNow() {
+    const sim = this.props.simulaOra ?? 'reale';
+    if (sim === 'sabato 17:00') return { day: 'sab', min: 17 * 60 };
+    if (sim === 'venerdì 21:00') return { day: 'ven', min: 21 * 60 };
+    return romeNow();
+  }
+
+  reduced() { return typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  heroWaves() {
+    if (this._waves) return this._waves;
+    const h = React.createElement, still = this.reduced();
+    const layer = (y, amp, fill, dur, delay, height) => h('svg', { viewBox: '0 0 2880 ' + height, preserveAspectRatio: 'none', style: { position: 'absolute', left: 0, bottom: 0, width: '200%', height, display: 'block', animation: still ? 'none' : `mareaWave ${dur}s linear ${delay}s infinite` } },
+      h('path', { d: `M0 ${y} Q360 ${y - amp} 720 ${y} T1440 ${y} T2160 ${y} T2880 ${y} V${height} H0Z`, fill }));
+    this._waves = h('div', { 'aria-hidden': true, style: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 190, overflow: 'hidden', pointerEvents: 'none' } },
+      layer(70, 46, '#2A7FD6', 26, 0, 190),
+      layer(80, 40, '#0A55B5', 18, -6, 150),
+      layer(70, 34, '#073D8B', 12, -3, 110),
+      layer(40, 22, '#D7141A', 9, -2, 56));
+    return this._waves;
+  }
+
+  marquee() {
+    if (this._marquee) return this._marquee;
+    const h = React.createElement, still = this.reduced();
+    const words = ['Mediterraneo', 'Arte', 'Resistenza', 'Ecologia', 'Azione', 'La marea avanza… tuffati!'];
+    const run = k => h('div', { key: k, style: { display: 'flex', flex: 'none', gap: 36, paddingRight: 36 } }, words.map((w, i) => h('span', { key: i, style: { display: 'flex', alignItems: 'center', gap: 36 } }, w, h('span', { style: { width: 12, height: 12, background: '#fff', transform: 'rotate(45deg)', display: 'inline-block' } }))));
+    this._marquee = h('div', { 'aria-hidden': true, style: { background: '#D7141A', color: '#fff', overflow: 'hidden', padding: '16px 0', font: "800 clamp(26px,3.4vw,42px)/1 'Barlow Condensed',sans-serif", textTransform: 'uppercase', letterSpacing: '.02em', whiteSpace: 'nowrap' } },
+      h('div', { style: { display: 'flex', width: 'max-content', animation: still ? 'none' : 'mareaWave 38s linear infinite' } }, run(0), run(1)));
+    return this._marquee;
+  }
+
+  renderVals() {
+    const now = this.getNow();
+    const day = this.state.day || (now && now.day) || 'gio';
+    const isNowFn = (dId, e) => { if (!now || now.day !== dId) return false; const [a, b] = range(e.time); return now.min >= a && now.min < b; };
+    const decorate = (dId, e) => ({
+      ...e, catLabel: CATS[e.cat], isLive: e.cat === 'live', notLive: e.cat !== 'live',
+      lines: e.lines || [], people: e.people || [], hasPeople: !!(e.people && e.people.length), place: e.place || '',
+      isNow: isNowFn(dId, e),
+      shortTitle: e.cat === 'live' ? 'Concerti / Live' : e.title,
+      summary: e.cat === 'live' ? e.names.join(' · ') : (e.lines && e.lines.length ? e.lines[e.lines.length - 1] : (e.people ? e.people.slice(0, 3).join(', ') + (e.people.length > 3 ? '…' : '') : '')),
+      tagBg: e.cat === 'live' ? '#0164C6' : '#D7141A',
+    });
+    const sorted = id => [...EVENTS[id]].sort((a, b) => sortKey(a) - sortKey(b));
+    const dayAll = sorted(day).map(e => decorate(day, e));
+    const presentCats = new Set(Object.values(EVENTS).flat().map(e => e.cat));
+    const catChips = [['tutto', 'Tutto'], ...Object.entries(CATS).filter(([k]) => presentCats.has(k))].map(([k, label]) => ({
+      label, bg: this.state.cat === k ? '#0164C6' : 'transparent', fg: this.state.cat === k ? '#fff' : '#0164C6',
+      select: () => this.setState({ cat: k }),
+    }));
+    const dayItems = this.state.cat === 'tutto' ? dayAll : dayAll.filter(e => e.cat === this.state.cat);
+    return {
+      heroWaves: this.heroWaves(), marquee: this.marquee(),
+      heroDays: DAYS.map(d => ({ short: d.short, num: d.num, select: () => this.setState({ day: d.id }) })),
+      nowActive: !!now, nowLabel: now ? `${DAYS.find(d => d.id === now.day).name} ${String(Math.floor(now.min / 60)).padStart(2, '0')}:${String(now.min % 60).padStart(2, '0')}` : '',
+      dayTabs: DAYS.map(d => ({ name: d.name, short: d.short, num: d.num, bg: d.id === day ? '#D7141A' : '#fff', fg: d.id === day ? '#fff' : '#D7141A', shadow: d.id === day ? '6px 6px 0 #073D8B' : '0 0 0 #073D8B', lift: d.id === day ? 'translate(-3px,-3px)' : 'none', select: () => this.setState({ day: d.id }) })),
+      catChips, dayItems, dayEmpty: dayItems.length === 0,
+      ...this.mapVals(day),
+      mostre: MOSTRE, siamo: SIAMO, stand: STAND, adesioni: ADESIONI,
+      acronimo: ACRONIMO.map((a, i) => ({ ...a, open: !!this.state.open[i], sign: this.state.open[i] ? '–' : '+', toggle: () => this.setState(s => ({ open: { ...s.open, [i]: !s.open[i] } })) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

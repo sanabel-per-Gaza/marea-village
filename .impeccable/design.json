@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T16:06:38.949Z",
+  "title": "Design System: MAREA Village",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "display-red",
+        "value": "5px 5px 0 var(--rosso)",
+        "purpose": "Titoli da manifesto."
+      },
+      {
+        "name": "map-red",
+        "value": "8px 8px 0 var(--rosso)",
+        "purpose": "Cornice della mappa."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "150ms ease-out",
+        "purpose": "Stati di CTA e tab."
+      },
+      {
+        "name": "marea",
+        "value": "translateX(-50%) linear infinite",
+        "purpose": "Onde e marquee; disabilitato con movimento ridotto."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small",
+        "value": "390px"
+      },
+      {
+        "name": "mobile",
+        "value": "640px"
+      },
+      {
+        "name": "stacked",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "CTA primaria",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "html": "<a class=\"ds-primary\" href=\"#programma\">Il programma</a>",
+      "css": ".ds-primary{display:inline-flex;min-height:52px;align-items:center;padding:15px 26px;background:var(--rosso);color:white;font:800 20px/1 \"Barlow Condensed\",sans-serif;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--blu-scuro)}.ds-primary:hover{box-shadow:2px 2px 0 var(--blu-scuro);transform:translate(3px,3px)}.ds-primary:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+    },
+    {
+      "name": "CTA secondaria",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "html": "<a class=\"ds-secondary\" href=\"#manifesto\">Il manifesto</a>",
+      "css": ".ds-secondary{display:inline-flex;min-height:52px;align-items:center;padding:15px 26px;background:white;color:var(--blu-scuro);font:800 20px/1 \"Barlow Condensed\",sans-serif;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--rosso)}.ds-secondary:hover{box-shadow:2px 2px 0 var(--rosso);transform:translate(3px,3px)}.ds-secondary:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+    },
+    {
+      "name": "Filtro categoria",
+      "kind": "chip",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Tutto</button>",
+      "css": ".ds-filter{min-height:44px;padding:10px 16px;border:2px solid var(--blu);border-radius:999px;color:white;background:var(--blu);font:600 16px \"Barlow\",sans-serif;cursor:pointer}.ds-filter:hover{background:var(--blu-scuro)}.ds-filter:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+    },
+    {
+      "name": "Orario evento",
+      "kind": "chip",
+      "html": "<time class=\"ds-time\">16:30–18:30</time>",
+      "css": ".ds-time{display:inline-block;padding:7px 10px;background:var(--rosso);color:white;font:700 18px/1 \"Barlow Condensed\",sans-serif;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Scheda luogo",
+      "kind": "card",
+      "html": "<section class=\"ds-place\"><h3>Palco</h3><p>Concerti / Live ogni sera.</p></section>",
+      "css": ".ds-place{padding:22px;background:var(--blu-scuro);color:white}.ds-place h3{margin:0;font:800 28px/1.05 \"Barlow Condensed\",sans-serif;text-transform:uppercase}.ds-place p{margin:8px 0 0;font:400 16px/1.45 \"Barlow\",sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Manifesto popolare",
+    "overview": "Riferimento visivo definitivo: design/Marea Village.dc.html. Colori piatti, tipografia condensed e ombre strutturali conservano l'identità fornita.",
+    "keyCharacteristics": [
+      "Campiture blu e crema",
+      "Titoli maiuscoli condensed",
+      "Ombre rosse piene",
+      "Onde SVG"
+    ],
+    "dos": [
+      "Preservare gli asset forniti.",
+      "Verificare contrasto e target touch."
+    ],
+    "donts": [
+      "Non riscrivere i contenuti.",
+      "Non introdurre font remoti."
+    ]
+  }
+}

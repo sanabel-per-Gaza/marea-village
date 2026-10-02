@@ -179,7 +179,9 @@
     "collegamento": "Sabato 10 ottobre, 15:30 · Sanabel, collegamento da Gaza"
   },
   "social": {},
-  "contatti": {},
+  "contatti": {
+    "info@mareavillage.it": "mailto:info@mareavillage.it"
+  },
   "donazioneSanabel": "",
   "indirizzo": "",
   "posizioniConfermate": false

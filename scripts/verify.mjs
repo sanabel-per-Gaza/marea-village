@@ -3,6 +3,8 @@ import { expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { launchBrowser } from './browser.mjs';
 
+const contents = JSON.parse(await readFile(new URL('../src/lib/data/contenuti.json', import.meta.url), 'utf8'));
+const contactLinks = [...Object.entries(contents.contatti ?? {}), ...Object.entries(contents.social ?? {})].filter(([, value]) => value.trim());
 const url = process.env.TEST_URL || 'http://127.0.0.1:4174/marea-village/';
 const out = process.env.SCREENSHOT_DIR || 'docs/screenshots';
 await mkdir(out, { recursive: true });
@@ -27,7 +29,7 @@ try {
     await expect(page.getByRole('tab')).toHaveCount(4);
     const rows = await page.getByRole('tab').evaluateAll((tabs) => tabs.map((tab) => Math.round(tab.getBoundingClientRect().y)));
     expect(Math.max(...rows) - Math.min(...rows)).toBeLessThanOrEqual(4);
-    const targets = await page.locator('button, .hero-days a, .hero-actions a, .nav-links a').evaluateAll((els) =>
+    const targets = await page.locator('button, .hero-days a, .hero-actions a, .nav-links a, .contact-grid a').evaluateAll((els) =>
       els.filter((el) => { const r = el.getBoundingClientRect(); return r.width < 44 || r.height < 44; })
         .map((el) => ({ text: el.getAttribute('aria-label') || el.textContent?.trim(), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }))
     );
@@ -63,7 +65,10 @@ try {
     await expect(page.locator('.place-card h3')).toHaveText('Teatro · edificio G (SAP)');
     await expect(page.locator('.place-events > div')).toHaveCount(1);
 
-    await expect(page.locator('.contact-grid')).toHaveCount(0);
+    await expect(page.locator('.contact-grid')).toHaveCount(contactLinks.length ? 1 : 0);
+    for (const [label, href] of contactLinks) {
+      await expect(page.locator('.contact-grid').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href);
+    }
     const staticSeo = await page.locator('script[type="application/ld+json"]').textContent();
     expect(JSON.parse(staticSeo)['@graph']).toHaveLength(4);
     await context.close();

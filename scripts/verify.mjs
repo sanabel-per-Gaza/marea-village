@@ -77,12 +77,34 @@ try {
     const art = page.getByRole('button', { name: 'A Arte', exact: true });
     await art.click();
     await expect(art).toHaveAttribute('aria-expanded', 'true');
-    await page.getByRole('button', { name: 'Seleziona 2, Area L, destra' }).click();
-    await expect(page.locator('.place-card h3')).toHaveText('Area L · destra');
-    await expect(page.locator('.place-events > div')).toHaveCount(3);
-    await page.locator('.place-chips button').nth(3).click();
-    await expect(page.locator('.place-card h3')).toHaveText('Teatro · edificio G (SAP)');
-    await expect(page.locator('.place-events > div')).toHaveCount(1);
+    if (contents.posizioniConfermate) {
+      await expect(page.locator('.map-overlay')).toHaveCount(0);
+      await page.getByRole('button', { name: 'Seleziona 2, Area L, destra' }).click();
+      await expect(page.locator('.place-card h3')).toHaveText('Area L · destra');
+      await expect(page.locator('.place-events > div')).toHaveCount(3);
+      await page.locator('.place-chips button').nth(3).click();
+      await expect(page.locator('.place-card h3')).toHaveText('Teatro · edificio G (SAP)');
+      await expect(page.locator('.place-events > div')).toHaveCount(1);
+    } else {
+      await expect(page.getByRole('heading', { name: 'Mappa in definizione', exact: true })).toBeVisible();
+      await expect(page.locator('.map-content')).toHaveAttribute('inert', '');
+      await expect(page.locator('.place-column')).toHaveAttribute('inert', '');
+      await expect(page.locator('.map-content')).toHaveAttribute('aria-hidden', 'true');
+      await expect(page.locator('.place-column')).toHaveAttribute('aria-hidden', 'true');
+      await expect(page.locator('.pin-target:disabled')).toHaveCount(8);
+      await expect(page.locator('.place-chips button:disabled')).toHaveCount(8);
+      await expect(page.getByRole('button', { name: 'Seleziona 2, Area L, destra' })).toHaveCount(0);
+      await page.locator('.nav-links a[href="#villaggio"]').click();
+      await page.locator('.map-overlay').click({ position: { x: 20, y: 20 } });
+      await expect(page.locator('.place-card h3')).toHaveText('Palco');
+      await page.locator('.pin-target').first().evaluate((button) => button.focus());
+      expect(await page.locator('.map-content, .place-column').evaluateAll((areas) =>
+        areas.some((area) => area.contains(document.activeElement)))).toBe(false);
+    }
+    if (width === 390 || width === 1440) {
+      await page.locator('.nav-links a[href="#villaggio"]').click();
+      await page.screenshot({ path: `${out}/map-${width}.png`, animations: 'disabled' });
+    }
 
     await expect(page.locator('.contact-grid')).toHaveCount(contactLinks.length ? 1 : 0);
     for (const [label, href] of contactLinks) {
@@ -113,6 +135,11 @@ try {
   await expect(noJsPage.locator('.now-summary')).toHaveCount(0);
   await expect(noJsPage.getByRole('link', { name: 'Scarica il programma · PDF', exact: true }))
     .toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
+  if (!contents.posizioniConfermate) {
+    await expect(noJsPage.getByRole('heading', { name: 'Mappa in definizione', exact: true })).toBeVisible();
+    await expect(noJsPage.locator('.pin-target:disabled')).toHaveCount(8);
+    await expect(noJsPage.locator('.place-chips button:disabled')).toHaveCount(8);
+  }
   await noJs.close();
 } finally {
   await browser.close();

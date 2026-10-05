@@ -328,7 +328,7 @@
 
       <div class="village-grid">
         <VillageMap selected={selectedPlace} confirmed={contenuti.posizioniConfermate} onSelect={(id) => (selectedPlace = id)} />
-        <div class="place-column">
+        <div class="place-column" class:in-definition={!contenuti.posizioniConfermate} inert={!contenuti.posizioniConfermate} aria-hidden={!contenuti.posizioniConfermate}>
           <div class="place-card" aria-live="polite">
             <h3>{selectedPlaceData.name}</h3>
             <p>{selectedPlaceData.what}</p>
@@ -343,7 +343,7 @@
           </div>
           <div class="place-chips" aria-label="Luoghi del villaggio">
             {#each contenuti.luoghi as place}
-              <button type="button" class:active={selectedPlace === place.id} aria-pressed={selectedPlace === place.id} onclick={() => (selectedPlace = place.id)}>
+              <button type="button" disabled={!contenuti.posizioniConfermate} class:active={contenuti.posizioniConfermate && selectedPlace === place.id} aria-pressed={contenuti.posizioniConfermate && selectedPlace === place.id} onclick={() => (selectedPlace = place.id)}>
                 <span>{place.n}</span><strong>{place.name}</strong>
               </button>
             {/each}
@@ -1206,6 +1206,11 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .place-column.in-definition {
+    opacity: 0.4;
+    filter: grayscale(1);
   }
 
   .place-card {

@@ -21,19 +21,20 @@
   ];
 
   function fill(id: string) {
-    if (id !== selected) return base[id];
+    if (!confirmed || id !== selected) return base[id];
     return id === 'bambini' ? '#FFB9B5' : '#D7141A';
   }
 
   function marker(id: string) {
-    return id === selected ? '#073D8B' : '#D7141A';
+    return confirmed && id === selected ? '#073D8B' : '#D7141A';
   }
 </script>
 
-<div class="map-shell" role="group" aria-label="Mappa interattiva del villaggio MAREA">
+<div class="map-shell" class:in-definition={!confirmed} role="group" aria-label={confirmed ? 'Mappa interattiva del villaggio MAREA' : 'Mappa del villaggio MAREA in definizione'} aria-describedby={confirmed ? undefined : 'map-status'}>
+  <div class="map-content" inert={!confirmed} aria-hidden={!confirmed}>
   <svg viewBox="0 0 1272 1096" aria-hidden="true">
     <title id="map-title">Mappa schematica del villaggio MAREA</title>
-    <desc id="map-description">Mappa interattiva con otto luoghi numerati. Le posizioni sono da confermare.</desc>
+    <desc id="map-description">Mappa interattiva con otto luoghi numerati.</desc>
     <rect width="1272" height="1096" fill="#EFEBDA" />
     <rect y="985" width="1272" height="111" fill="#D9D3BE" />
     <text x="1240" y="1050" text-anchor="end" class="street">STRADA</text>
@@ -102,11 +103,20 @@
       type="button"
       style={`left:${pin.x / 1272 * 100}%;top:${pin.y / 1096 * 100}%`}
       aria-label={`Seleziona ${pin.n}, ${pin.name}`}
-      aria-pressed={selected === pin.id}
-      onclick={() => onSelect(pin.id)}
+      aria-pressed={confirmed && selected === pin.id}
+      disabled={!confirmed}
+      onclick={() => confirmed && onSelect(pin.id)}
     ><span class="sr-only">{pin.name}</span></button>
   {/each}
-  {#if !confirmed}<div class="map-badge">Mappa schematica · posizioni da confermare</div>{/if}
+  </div>
+  {#if !confirmed}
+    <div class="map-overlay" role="note" id="map-status">
+      <div class="map-status">
+        <h3>Mappa in definizione</h3>
+        <p>Le posizioni sono provvisorie. La mappa non è ancora consultabile.</p>
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -175,16 +185,41 @@
     font-weight: 800;
   }
 
-  .map-badge {
+  .in-definition .map-content {
+    opacity: 0.4;
+    filter: grayscale(1);
+  }
+
+  .map-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    max-width: calc(100% - 20px);
-    padding: 5px 9px;
-    color: #fff;
-    background: var(--rosso);
-    font: 700 clamp(0.65rem, 1.3vw, 0.8125rem) / 1.1 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.1em;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--crema) 45%, transparent);
+    cursor: not-allowed;
+  }
+
+  .map-status {
+    max-width: 26rem;
+    padding: clamp(1rem, 3vw, 1.75rem);
+    color: var(--blu-scuro);
+    background: var(--crema);
+    text-align: center;
+  }
+
+  .map-status h3 {
+    margin: 0;
+    font: 800 clamp(1.75rem, 3vw, 2.5rem)/1.05 'Barlow Condensed', sans-serif;
     text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  .map-status p {
+    margin: 0.75rem 0 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    text-wrap: pretty;
   }
 </style>

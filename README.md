@@ -63,7 +63,7 @@ La sorgente è `src/lib/data/contenuti.json`:
 - `contatti`: oggetto etichetta → link, usando `mailto:` o `tel:` quando appropriato.
 - `donazioneSanabel`: URL della donazione, oppure stringa vuota.
 - `indirizzo`: indirizzo verificato, oppure stringa vuota.
-- `posizioniConfermate`: `false` finché la mappa è provvisoria; `true` elimina il badge.
+- `posizioniConfermate`: `false` mostra la mappa attenuata con il layer “Mappa in definizione” e disabilita marker e controlli dei luoghi (anche da tastiera e per le tecnologie assistive); `true` rimuove il layer e riattiva la consultazione.
 - Testi del manifesto, introduzione al villaggio, Sanabel, luoghi, stand e adesioni.
 
 Oggetti vuoti e valori vuoti non generano link o sezioni. Non aggiungere contatti o posizioni non verificati. La geometria SVG è in `src/lib/components/VillageMap.svelte`.

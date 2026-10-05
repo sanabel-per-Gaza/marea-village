@@ -38,7 +38,9 @@ bun scripts/serve.mjs
 
 Modificare **solo `src/lib/data/programma.json`**: giorni, categorie, eventi e mostre vengono importati dalla pagina. I file in `data/` conservano il materiale originale del passaggio di consegne e non sono la sorgente del sito.
 
-Ogni evento comprende `cat`, `time` e, secondo il tipo, `title`, `lines`, `people`, `place` oppure `names` per i concerti. Gli eventi vengono ordinati automaticamente per orario.
+Ogni evento comprende `cat`, `time` e, secondo il tipo, `title`, `lines`, `people`, `place` oppure `names` per i concerti. Gli eventi vengono ordinati automaticamente per orario. Anche i concerti possono avere `lines` per le informazioni aggiuntive.
+
+Il programma è allineato a `PROGRAMMA MAREA VILLAGE.pdf` (5 ottobre 2026). Il PDF originale scaricabile è pubblicato in **`static/programma-marea-village.pdf`**; quando cambia il programma, aggiornare anche questo file. Il link nella sezione Programma supporta il base path di GitHub Pages.
 
 Le descrizioni delle assemblee sono predisposte come array opzionale:
 

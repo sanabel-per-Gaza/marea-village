@@ -178,10 +178,13 @@
     <div class="content">
       <div class="section-heading-row">
         <h2 id="programma-title" class="display-title">Programma</h2>
+        <a class="button button-red" href={`${base}/programma-marea-village.pdf`} download="PROGRAMMA MAREA VILLAGE.pdf">Scarica il programma · PDF</a>
         {#if nowInfo}
           <div class="now-summary" aria-live="polite"><span></span>Adesso al villaggio · {nowInfo.label}</div>
         {/if}
       </div>
+
+      <p class="section-intro">8–11 ottobre 2026 · Parco San Laise (ex base NATO) · Ingresso libero</p>
 
       <div class="day-tabs" role="tablist" aria-label="Giorni del programma">
         {#each programma.giorni as day, index}
@@ -218,6 +221,9 @@
                 <div class="live-names">
                   {#each event.names ?? [] as name}<h3>{name}</h3>{/each}
                 </div>
+                {#if event.lines?.length}
+                  <div class="event-lines">{#each event.lines as line}<div>{line}</div>{/each}</div>
+                {/if}
                 {#if isNow(event, selectedDay)}<span class="now-badge inverse">Adesso</span>{/if}
               </div>
             </article>

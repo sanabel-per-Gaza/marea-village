@@ -34,6 +34,39 @@ describe('programme data and map', () => {
     expect(sortEvents(input)[0].time).toBe('09:00–10:00');
     expect(input[0].time).toBe('18:30–19:30');
   });
+  test('matches the updated PDF programme', () => {
+    expect(Object.values(programma.eventi).map((events) => events.length)).toEqual([4, 9, 9, 1]);
+    const cpr = programma.eventi.ven.find((event) => event.title === '“Nessun essere umano è illegale!”');
+    expect(cpr?.people).toEqual([
+      'Coordina Laura Marmorale (Mediterranea Saving Humans)',
+      "Mimma D'Amico (Ex Canapificio, coordinatrice regionale No CPR)",
+      'Lorenzo Figoni (Action Aid - da remoto)',
+      'Francesca Viviani (avvocata, Rete Lucana No CPR)',
+      'Faouzi (testimone resistente)',
+      'don Pino Natale (parroco di San Laise)',
+      'Pasquale Gallifuoco (vicepresidente regionale ACLI)'
+    ]);
+    expect(programma.eventi.sab.find((event) => event.time === '10:00–12:00' && event.cat === 'incontri')?.people)
+      .toContain('Piero Castrataro (sindaco di Isernia)');
+    const mediterraneo = programma.eventi.sab.find((event) => event.time === '16:30–19:30');
+    expect(mediterraneo?.people).toContain('Greta Thunberg');
+    expect(mediterraneo?.people).toContain('Luca Persico ‘O Zulù');
+    expect(programma.eventi.ven.find((event) => event.cat === 'live')?.names).toEqual([
+      'Priscilla Drag Artivist (monologo)',
+      'Lino Vairetti (Osanna), Massimo Mollo e Omar Suleiman',
+      'PS5',
+      'Psyché'
+    ]);
+    const saturdayLive = programma.eventi.sab.find((event) => event.cat === 'live');
+    expect(saturdayLive?.names).toEqual(['Bababoom Hi Fi Full Sound System']);
+    expect(saturdayLive?.lines).toEqual(['with Jules I & Dub Harp']);
+  });
+  test('downloadable PDF is included in the static assets', async () => {
+    const pdf = Bun.file(new URL('../static/programma-marea-village.pdf', import.meta.url));
+    expect(await pdf.exists()).toBe(true);
+    expect(pdf.size).toBe(1612659);
+    expect(await pdf.slice(0, 5).text()).toBe('%PDF-');
+  });
   test('map links activities to the correct places', () => {
     expect(eventsAtPlace(programma.eventi.gio, 'palco')[0].cat).toBe('live');
     expect(eventsAtPlace(programma.eventi.gio, 'areaL')).toHaveLength(2);

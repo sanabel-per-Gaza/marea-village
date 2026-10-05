@@ -27,9 +27,21 @@ try {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     expect(overflow).toBe(false);
     await expect(page.getByRole('tab')).toHaveCount(4);
+    const pdfLink = page.getByRole('link', { name: 'Scarica il programma · PDF', exact: true });
+    await expect(pdfLink).toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
+    await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', url).pathname);
+    if (width === 1440) {
+      const [download] = await Promise.all([page.waitForEvent('download'), pdfLink.click()]);
+      // PDF viewers may prefer the URL filename over the download attribute.
+      expect(['PROGRAMMA MAREA VILLAGE.pdf', 'programma-marea-village.pdf']).toContain(download.suggestedFilename());
+      expect(await download.failure()).toBeNull();
+      const downloaded = await readFile(await download.path());
+      const original = await readFile(new URL('../static/programma-marea-village.pdf', import.meta.url));
+      expect(downloaded.equals(original)).toBe(true);
+    }
     const rows = await page.getByRole('tab').evaluateAll((tabs) => tabs.map((tab) => Math.round(tab.getBoundingClientRect().y)));
     expect(Math.max(...rows) - Math.min(...rows)).toBeLessThanOrEqual(4);
-    const targets = await page.locator('button, .hero-days a, .hero-actions a, .nav-links a, .contact-grid a').evaluateAll((els) =>
+    const targets = await page.locator('button, .button, .hero-days a, .nav-links a, .contact-grid a').evaluateAll((els) =>
       els.filter((el) => { const r = el.getBoundingClientRect(); return r.width < 44 || r.height < 44; })
         .map((el) => ({ text: el.getAttribute('aria-label') || el.textContent?.trim(), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }))
     );
@@ -41,6 +53,10 @@ try {
     await page.locator('.boat-wrap img').evaluate(async (image) => { image.loading = 'eager'; await image.decode(); });
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.screenshot({ path: `${out}/${filename}`, fullPage: true, animations: 'disabled' });
+    if (width === 390 || width === 1440) {
+      await page.locator('.nav-links a[href="#programma"]').click();
+      await page.screenshot({ path: `${out}/program-${width}.png`, animations: 'disabled' });
+    }
 
     await page.locator('.hero-days a').nth(2).click();
     await expect(page.getByRole('tab', { name: 'Sab 10' })).toHaveAttribute('aria-selected', 'true');
@@ -54,6 +70,9 @@ try {
     await page.getByRole('tab', { name: 'Ven 9' }).focus();
     await page.keyboard.press('ArrowRight');
     await expect(page.getByRole('tab', { name: 'Sab 10' })).toBeFocused();
+    await expect(page.locator('#program-panel').getByText('Greta Thunberg', { exact: true })).toBeVisible();
+    await expect(page.locator('#program-panel').getByText('Luca Persico ‘O Zulù', { exact: true })).toBeVisible();
+    await expect(page.locator('.live-event .event-lines')).toHaveText('with Jules I & Dub Harp');
 
     const art = page.getByRole('button', { name: 'A Arte', exact: true });
     await art.click();
@@ -92,6 +111,8 @@ try {
   await noJsPage.goto(url);
   await expect(noJsPage.getByText('Guerra e libertà di informazione', { exact: true })).toBeVisible();
   await expect(noJsPage.locator('.now-summary')).toHaveCount(0);
+  await expect(noJsPage.getByRole('link', { name: 'Scarica il programma · PDF', exact: true }))
+    .toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
   await noJs.close();
 } finally {
   await browser.close();

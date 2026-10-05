@@ -60,7 +60,9 @@
         "time": "18:30–19:30",
         "title": "Presentazione mostre",
         "lines": [
-          "Between Gaza and Napoli · Falastin Hurra' · OFFSET"
+          "Between Gaza and Napoli",
+          "Falastin Hurrà",
+          "Presentazione zine OFFSET"
         ],
         "place": "Area L · destra, di fronte al Parco"
       },
@@ -130,12 +132,13 @@
           "Verso la manifestazione nazionale a Castelvolturno del 24 ottobre"
         ],
         "people": [
-          "Laura Marmorale e Donato Barbato (Mediterranea Saving Humans)",
-          "Lorenzo Figoni (avvocato e giornalista investigativo Action Aid)",
-          "Mimma D'Amico (movimento migranti Caserta)",
-          "Moussa Diakitè (movimento migranti e rifugiati di Napoli)",
+          "Coordina Laura Marmorale (Mediterranea Saving Humans)",
+          "Mimma D'Amico (Ex Canapificio, coordinatrice regionale No CPR)",
+          "Lorenzo Figoni (Action Aid - da remoto)",
+          "Francesca Viviani (avvocata, Rete Lucana No CPR)",
+          "Faouzi (testimone resistente)",
           "don Pino Natale (parroco di San Laise)",
-          "Pasquale Gallifuoco"
+          "Pasquale Gallifuoco (vicepresidente regionale ACLI)"
         ],
         "place": "Area L · destra, di fronte al Parco"
       },
@@ -164,10 +167,9 @@
         "time": "dalle 20:30",
         "names": [
           "Priscilla Drag Artivist (monologo)",
-          "Lino Vairetti (Osanna) e Massimo Mollo",
-          "Omar Suleiman",
+          "Lino Vairetti (Osanna), Massimo Mollo e Omar Suleiman",
           "PS5",
-          "Psiche'"
+          "Psyché"
         ]
       }
     ],
@@ -180,10 +182,11 @@
         "people": [
           "Pasquale Tridico (europarlamentare, già presidente INPS)",
           "BIN – Basic Income Network Italia",
-          "Adolfo Fattori, sociologo",
+          "Adolfo Fattori (sociologo)",
           "Eddy Sorge (Mov. disoccupati 7 Novembre - Comitato No America's Cup)",
           "Paolo Fierro (Medicina Democratica)",
-          "Giacomo Smarrazzo (Gesco)"
+          "Giacomo Smarrazzo (Gesco)",
+          "Piero Castrataro (sindaco di Isernia)"
         ],
         "place": "Area L · destra, di fronte al Parco"
       },
@@ -198,9 +201,9 @@
       {
         "cat": "bambini",
         "time": "10:30–11:30",
-        "title": "Karate giocando",
+        "title": "Impariamo il karate giocando",
         "lines": [
-          "Mimmo Troia"
+          "con il Maestro Mimmo Troia"
         ]
       },
       {
@@ -215,8 +218,10 @@
       {
         "cat": "incontri",
         "time": "15:30–16:10",
-        "title": "Sanabel · collegamento da Gaza",
-        "lines": [],
+        "title": "Presentazione Sanabel",
+        "lines": [
+          "Collegamento da Gaza"
+        ],
         "place": "Area L · destra, di fronte al Parco"
       },
       {
@@ -241,10 +246,12 @@
         "title": "Contro militarismo e genocidio, per un manifesto di resistenza e libertà nel Mediterraneo",
         "lines": [],
         "people": [
+          "Greta Thunberg",
           "Francesca Albanese",
           "Emiliano Brancaccio",
           "Luciana Castellina",
           "Luigi Daniele",
+          "Luca Persico ‘O Zulù",
           "Intervengono realtà di base, reti e movimenti sociali"
         ],
         "place": "Area L · destra, di fronte al Parco"
@@ -253,8 +260,10 @@
         "cat": "live",
         "time": "dalle 20:00",
         "names": [
-          "Bababoom Hi Fi",
-          "Full Sound System"
+          "Bababoom Hi Fi Full Sound System"
+        ],
+        "lines": [
+          "with Jules I & Dub Harp"
         ]
       }
     ],
@@ -278,7 +287,7 @@
       "place": "Area L · destra"
     },
     {
-      "title": "Falastin Hurra'",
+      "title": "Falastin Hurrà",
       "by": "Collettiva fumettisti e illustratori da e per la Palestina Libera",
       "place": "Area L · destra"
     },

@@ -36,6 +36,8 @@ describe('programme data and map', () => {
   });
   test('matches the updated PDF programme', () => {
     expect(Object.values(programma.eventi).map((events) => events.length)).toEqual([4, 9, 9, 1]);
+    expect(programma.eventi.gio.find((event) => event.title === 'Guerra e libertà di informazione')?.lines)
+      .toContain('Conversazione con Romanetti e Marc Innaro');
     const cpr = programma.eventi.ven.find((event) => event.title === '“Nessun essere umano è illegale!”');
     expect(cpr?.people).toEqual([
       'Coordina Laura Marmorale (Mediterranea Saving Humans)',
@@ -44,10 +46,13 @@ describe('programme data and map', () => {
       'Francesca Viviani (avvocata, Rete Lucana No CPR)',
       'Faouzi (testimone resistente)',
       'don Pino Natale (parroco di San Laise)',
-      'Pasquale Gallifuoco (vicepresidente regionale ACLI)'
+      'Pasquale Gallifuoco (vicepresidente regionale ACLI)',
+      'Movimento Migranti e Rifugiati di Napoli',
+      'Cooperativa Sociale Il Geco'
     ]);
-    expect(programma.eventi.sab.find((event) => event.time === '10:00–12:00' && event.cat === 'incontri')?.people)
-      .toContain('Piero Castrataro (sindaco di Isernia)');
+    const crisi = programma.eventi.sab.find((event) => event.time === '10:00–12:00' && event.cat === 'incontri');
+    expect(crisi?.people).toContain('Piero Castrataro (sindaco di Isernia)');
+    expect(crisi?.people).toContain('Centro Culturale Handala Ali');
     const mediterraneo = programma.eventi.sab.find((event) => event.time === '16:30–19:30');
     expect(mediterraneo?.people).toContain('Greta Thunberg');
     expect(mediterraneo?.people).toContain('Luca Persico ‘O Zulù');
@@ -64,7 +69,7 @@ describe('programme data and map', () => {
   test('downloadable PDF is included in the static assets', async () => {
     const pdf = Bun.file(new URL('../static/programma-marea-village.pdf', import.meta.url));
     expect(await pdf.exists()).toBe(true);
-    expect(pdf.size).toBe(1612659);
+    expect(pdf.size).toBe(1777397);
     expect(await pdf.slice(0, 5).text()).toBe('%PDF-');
   });
   test('map links activities to the correct places', () => {

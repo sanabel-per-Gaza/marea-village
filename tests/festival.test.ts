@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+import { createHash } from 'node:crypto';
 import programma from '../src/lib/data/programma.json';
 import { eventsAtPlace, getRomeNow, isEventNow, parseRange, sortEvents } from '../src/lib/festival';
 
@@ -52,10 +53,21 @@ describe('programme data and map', () => {
     ]);
     const crisi = programma.eventi.sab.find((event) => event.time === '10:00–12:00' && event.cat === 'incontri');
     expect(crisi?.people).toContain('Piero Castrataro (sindaco di Isernia)');
-    expect(crisi?.people).toContain('Centro Culturale Handala Ali');
+    expect(crisi?.people).toHaveLength(7);
+    expect(crisi?.people?.some((person) => person.includes('Handala Ali'))).toBe(false);
     const mediterraneo = programma.eventi.sab.find((event) => event.time === '16:30–19:30');
     expect(mediterraneo?.people).toContain('Greta Thunberg');
     expect(mediterraneo?.people).toContain('Luca Persico ‘O Zulù');
+    expect(mediterraneo?.people).toEqual([
+      'Greta Thunberg',
+      'Francesca Albanese',
+      'Emiliano Brancaccio',
+      'Luciana Castellina',
+      'Luigi Daniele',
+      'Luca Persico ‘O Zulù',
+      'Handala Ali',
+      'Intervengono realtà di base, reti e movimenti sociali'
+    ]);
     expect(programma.eventi.ven.find((event) => event.cat === 'live')?.names).toEqual([
       'Priscilla Drag Artivist (monologo)',
       'Lino Vairetti (Osanna), Massimo Mollo e Omar Suleiman',
@@ -69,8 +81,10 @@ describe('programme data and map', () => {
   test('downloadable PDF is included in the static assets', async () => {
     const pdf = Bun.file(new URL('../static/programma-marea-village.pdf', import.meta.url));
     expect(await pdf.exists()).toBe(true);
-    expect(pdf.size).toBe(1777397);
+    expect(pdf.size).toBe(1893040);
     expect(await pdf.slice(0, 5).text()).toBe('%PDF-');
+    expect(createHash('sha256').update(await pdf.bytes()).digest('hex'))
+      .toBe('9ee7c9b2d05781a6f41d6ee56a387cee37e9ac4c182e27cfde09be2db46281bc');
   });
   test('map links activities to the correct places', () => {
     expect(eventsAtPlace(programma.eventi.gio, 'palco')[0].cat).toBe('live');

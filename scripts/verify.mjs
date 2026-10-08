@@ -72,6 +72,10 @@ try {
     await expect(page.getByRole('tab', { name: 'Sab 10' })).toBeFocused();
     await expect(page.locator('#program-panel').getByText('Greta Thunberg', { exact: true })).toBeVisible();
     await expect(page.locator('#program-panel').getByText('Luca Persico ‘O Zulù', { exact: true })).toBeVisible();
+    const morningDebate = page.locator('.event-row').filter({ has: page.getByRole('heading', { name: 'Napoli e il Sud: gli effetti della crisi', exact: true }) });
+    const afternoonDebate = page.locator('.event-row').filter({ has: page.getByRole('heading', { name: 'Contro militarismo e genocidio, per un manifesto di resistenza e libertà nel Mediterraneo', exact: true }) });
+    await expect(morningDebate).not.toContainText('Handala Ali');
+    await expect(afternoonDebate.getByText('Handala Ali', { exact: true })).toBeVisible();
     await expect(page.locator('.live-event .event-lines')).toHaveText('with Jules I & Dub Harp');
 
     const art = page.getByRole('button', { name: 'A Arte', exact: true });

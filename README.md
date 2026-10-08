@@ -40,7 +40,7 @@ Modificare **solo `src/lib/data/programma.json`**: giorni, categorie, eventi e m
 
 Ogni evento comprende `cat`, `time` e, secondo il tipo, `title`, `lines`, `people`, `place` oppure `names` per i concerti. Gli eventi vengono ordinati automaticamente per orario. Anche i concerti possono avere `lines` per le informazioni aggiuntive.
 
-Il programma è allineato a `PROGRAMMA MAREA VILLAGE.pdf` (6 ottobre 2026). Il PDF originale scaricabile è pubblicato in **`static/programma-marea-village.pdf`**; quando cambia il programma, aggiornare anche questo file. Il link nella sezione Programma supporta il base path di GitHub Pages.
+Il programma è allineato a `PROGRAMMA MAREA VILLAGE-3.pdf` (aggiornamento del 7 ottobre 2026). Handala Ali partecipa al dibattito di sabato 10 ottobre delle 16:30–19:30, non all'incontro delle 10:00–12:00. Il PDF originale scaricabile è pubblicato in **`static/programma-marea-village.pdf`**; quando cambia il programma, aggiornare anche questo file. Il link nella sezione Programma supporta il base path di GitHub Pages.
 
 Le descrizioni delle assemblee sono predisposte come array opzionale:
 

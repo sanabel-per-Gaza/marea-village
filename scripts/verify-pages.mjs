@@ -39,6 +39,9 @@ try {
         await expect(page.getByText('Spazio in allestimento', { exact: true })).toBeVisible();
         await expect(page.locator('[aria-current="page"]')).toHaveText('Village 2027');
       } else {
+        expect(await page.locator('.edition-link h3').evaluateAll((headings) => headings.every((heading) =>
+          heading.getBoundingClientRect().height <= parseFloat(getComputedStyle(heading).fontSize) * 1.1
+        ))).toBe(true);
         const photo = page.locator('.home-photo');
         await expect(photo).toHaveAttribute('fetchpriority', 'high');
         expect(await photo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);

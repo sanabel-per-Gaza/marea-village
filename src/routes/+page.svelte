@@ -59,7 +59,7 @@
   .button:hover { color: var(--navy); background: var(--rosa); }
   .editions { padding: 4rem var(--gutter); }
   h2 { margin: 0 0 2rem; font: 800 clamp(2.5rem, 5vw, 4rem)/1 'Barlow Condensed', sans-serif; text-transform: uppercase; }
-  .edition-link { display: grid; grid-template-columns: 9rem 1fr auto; align-items: center; gap: 1rem 2rem; min-height: 7rem; padding-block: 1.5rem; border-top: 2px solid var(--blu-scuro); color: var(--navy); text-decoration: none; }
+  .edition-link { display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; align-items: center; gap: 1rem 2rem; min-height: 7rem; padding-block: 1.5rem; border-top: 2px solid var(--blu-scuro); color: var(--navy); text-decoration: none; }
   .edition-link:last-child { border-bottom: 2px solid var(--blu-scuro); }
   .edition-link:hover { color: var(--rosso); }
   h3 { margin: 0; font: 800 clamp(3rem, 6vw, 5rem)/1 'Barlow Condensed', sans-serif; }
@@ -70,7 +70,7 @@
     h1 img { max-width: 28rem; }
     .hero-copy p { font-size: clamp(2.5rem, 10vw, 4rem); }
     .editions { padding-block: 3rem; }
-    .edition-link { grid-template-columns: 5rem 1fr; gap: 0.75rem 1rem; }
+    .edition-link { grid-template-columns: max-content minmax(0, 1fr); gap: 0.75rem 1rem; }
     .edition-action { grid-column: 2; }
   }
 </style>

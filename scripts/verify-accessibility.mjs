@@ -54,6 +54,12 @@ try {
     // Increase only text sizing: browser zoom and physical-device rendering remain separate checks.
     await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), `${route || 'home'} with 200% text`).toBe(false);
+    if (!route) {
+      const singleLineYears = await page.locator('.edition-link h3').evaluateAll((headings) => headings.every((heading) =>
+        heading.getBoundingClientRect().height <= parseFloat(getComputedStyle(heading).fontSize) * 1.1
+      ));
+      expect(singleLineYears).toBe(true);
+    }
     reports.push({ route: route || 'home', focusContrast: Number(ratio.toFixed(2)), reflow320: true, text200Percent: true });
     await page.setViewportSize({ width: 390, height: 844 });
   }

@@ -76,6 +76,17 @@ La sorgente è `src/lib/data/contenuti.json`:
 
 Oggetti vuoti e valori vuoti non generano link o sezioni. Non aggiungere contatti o posizioni non verificati. La geometria SVG è in `src/lib/components/VillageMap.svelte`.
 
+## Materiali dell’archivio 2026
+
+La sorgente è **`src/lib/data/archivio-2026.json`**:
+
+- `rassegnaStampa`: cartella Google Drive fornita.
+- `rassegnaWeb`: sette articoli, video e post forniti, con fonte, titolo e URL.
+- `galleria.albumUrl`: link all’album pubblico della quattro giorni, quando disponibile.
+- `galleria.foto`: foto locali in `static/`, con `src` (percorso che inizia con `/`), `alt`, `width`, `height` e `didascalia` opzionale.
+
+La galleria resta nascosta se foto e URL dell’album sono assenti. **Da ricevere:** galleria della quattro giorni e profili social ufficiali. I post della rassegna non vengono usati come profili ufficiali.
+
 ## GitHub Pages
 
 In **Settings → Pages → Source**, scegliere **GitHub Actions**.

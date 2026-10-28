@@ -28,6 +28,9 @@ try {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     expect(overflow).toBe(false);
     await expect(page.getByRole('tab')).toHaveCount(4);
+    await expect(page.locator('#rassegna-web li')).toHaveCount(7);
+    await expect(page.locator('#rassegna-stampa a')).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ?usp=sharing');
+    await expect(page.locator('#galleria')).toHaveCount(0);
     const pdfLink = page.getByRole('link', { name: 'Scarica il programma · PDF', exact: true });
     await expect(pdfLink).toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
     await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', homeUrl).pathname);

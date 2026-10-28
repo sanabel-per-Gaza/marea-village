@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Manifesto from '$lib/components/Manifesto.svelte';
+  import ArchiveMaterials from '$lib/components/ArchiveMaterials.svelte';
   import { base } from '$app/paths';
   import { PUBLIC_SITE_URL } from '$env/static/public';
   import displayFont from '@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2?url';
@@ -90,7 +91,7 @@
 
 <svelte:head>
   <title>MAREA Village 2026 · Bagnoli, Napoli</title>
-  <meta name="description" content="Archivio MAREA Village 2026: il programma, le mostre e i materiali dell’edizione dell’8–11 ottobre a Bagnoli, Napoli." />
+  <meta name="description" content="Archivio MAREA Village 2026: rassegna stampa, web e social, programma e mostre dell’edizione dell’8–11 ottobre a Bagnoli, Napoli." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:title" content="MAREA Village 2026" />
@@ -113,6 +114,7 @@
     <div class="nav-scroll">
       <div class="nav-links">
         <a href={`${base}/`}>Home</a>
+        <a href="#materiali">Foto e rassegna</a>
         <a href="#programma">Programma</a>
         <a href="#mostre">Mostre</a>
         <a href="#manifesto">Manifesto</a>
@@ -144,7 +146,8 @@
         </div>
         <div class="hero-place">Ex base NATO · Bagnoli · Napoli</div>
         <div class="hero-actions">
-          <a class="button button-red" href="#programma">Il programma</a>
+          <a class="button button-red" href="#materiali">Foto e rassegna</a>
+          <a class="button button-light" href="#programma">Il programma</a>
           <a class="button button-light" href="#manifesto">Il manifesto</a>
         </div>
       </div>
@@ -168,6 +171,8 @@
       {/each}
     </div>
   </div>
+
+  <ArchiveMaterials />
 
   <section id="programma" class="section program-section" aria-labelledby="programma-title">
     <div class="content">

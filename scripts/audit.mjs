@@ -5,7 +5,8 @@ import { launch } from 'chrome-launcher';
 import { executablePath } from './browser.mjs';
 
 const url = process.env.TEST_URL || 'http://127.0.0.1:4174/marea-village/';
-await mkdir('docs/audits', { recursive: true });
+const out = process.env.AUDIT_DIR || 'docs/audits';
+await mkdir(out, { recursive: true });
 const chrome = await launch({
   chromePath: executablePath,
   chromeFlags: ['--headless', '--no-sandbox', '--disable-gpu']
@@ -22,8 +23,8 @@ try {
         screenEmulation: { mobile: false, width: 1440, height: 1000, deviceScaleFactor: 1, disabled: false }
       } : {})
     }, formFactor === 'desktop' ? desktopConfig : undefined);
-    await writeFile(`docs/audits/${formFactor}.html`, result.report[0]);
-    await writeFile(`docs/audits/${formFactor}.json`, result.report[1]);
+    await writeFile(`${out}/${formFactor}.html`, result.report[0]);
+    await writeFile(`${out}/${formFactor}.json`, result.report[1]);
     console.log(formFactor, Object.fromEntries(Object.entries(result.lhr.categories).map(([key, value]) => [key, Math.round(value.score * 100)])));
     const failed = Object.entries(result.lhr.audits).filter(([, a]) => a.score !== null && a.score < 1 && a.details);
     console.log('Findings:', failed.map(([key, a]) => ({ key, score: a.score, display: a.displayValue, details: Array.isArray(a.details.items) ? a.details.items.slice(0, 3) : undefined })));

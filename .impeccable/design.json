@@ -1,8 +1,178 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T16:06:38.949Z",
+  "generatedAt": "2026-10-28T09:37:55.701Z",
   "title": "Design System: MAREA Village",
   "extensions": {
+    "colorMeta": {
+      "blu": {
+        "role": "primary",
+        "displayName": "blu",
+        "tonalRamp": [
+          "oklch(15% 0.0572 255.53)",
+          "oklch(27% 0.1030 255.53)",
+          "oklch(39% 0.1488 255.53)",
+          "oklch(51% 0.1717 255.53)",
+          "oklch(63% 0.1717 255.53)",
+          "oklch(75% 0.1717 255.53)",
+          "oklch(87% 0.1116 255.53)",
+          "oklch(95% 0.0429 255.53)"
+        ]
+      },
+      "blu-scuro": {
+        "role": "primary",
+        "displayName": "blu-scuro",
+        "tonalRamp": [
+          "oklch(15% 0.0468 259.29)",
+          "oklch(27% 0.0843 259.29)",
+          "oklch(39% 0.1217 259.29)",
+          "oklch(51% 0.1405 259.29)",
+          "oklch(63% 0.1405 259.29)",
+          "oklch(75% 0.1405 259.29)",
+          "oklch(87% 0.0913 259.29)",
+          "oklch(95% 0.0351 259.29)"
+        ]
+      },
+      "navy": {
+        "role": "primary",
+        "displayName": "navy",
+        "tonalRamp": [
+          "oklch(15% 0.0501 266.76)",
+          "oklch(27% 0.0902 266.76)",
+          "oklch(39% 0.1302 266.76)",
+          "oklch(51% 0.1503 266.76)",
+          "oklch(63% 0.1503 266.76)",
+          "oklch(75% 0.1503 266.76)",
+          "oklch(87% 0.0977 266.76)",
+          "oklch(95% 0.0376 266.76)"
+        ]
+      },
+      "rosso": {
+        "role": "secondary",
+        "displayName": "rosso",
+        "tonalRamp": [
+          "oklch(15% 0.0734 27.59)",
+          "oklch(27% 0.1321 27.59)",
+          "oklch(39% 0.1908 27.59)",
+          "oklch(51% 0.2202 27.59)",
+          "oklch(63% 0.2202 27.59)",
+          "oklch(75% 0.2202 27.59)",
+          "oklch(87% 0.1431 27.59)",
+          "oklch(95% 0.0550 27.59)"
+        ]
+      },
+      "rosso-sole": {
+        "role": "secondary",
+        "displayName": "rosso-sole",
+        "tonalRamp": [
+          "oklch(15% 0.0792 30.22)",
+          "oklch(27% 0.1426 30.22)",
+          "oklch(39% 0.2060 30.22)",
+          "oklch(51% 0.2377 30.22)",
+          "oklch(63% 0.2377 30.22)",
+          "oklch(75% 0.2377 30.22)",
+          "oklch(87% 0.1545 30.22)",
+          "oklch(95% 0.0594 30.22)"
+        ]
+      },
+      "accento-su-blu": {
+        "role": "secondary",
+        "displayName": "accento-su-blu",
+        "tonalRamp": [
+          "oklch(15% 0.0632 28.76)",
+          "oklch(27% 0.1138 28.76)",
+          "oklch(39% 0.1644 28.76)",
+          "oklch(51% 0.1896 28.76)",
+          "oklch(63% 0.1896 28.76)",
+          "oklch(75% 0.1896 28.76)",
+          "oklch(87% 0.1233 28.76)",
+          "oklch(95% 0.0474 28.76)"
+        ]
+      },
+      "crema": {
+        "role": "neutral",
+        "displayName": "crema",
+        "tonalRamp": [
+          "oklch(15% 0.0048 102.45)",
+          "oklch(27% 0.0087 102.45)",
+          "oklch(39% 0.0126 102.45)",
+          "oklch(51% 0.0145 102.45)",
+          "oklch(63% 0.0145 102.45)",
+          "oklch(75% 0.0145 102.45)",
+          "oklch(87% 0.0094 102.45)",
+          "oklch(95% 0.0036 102.45)"
+        ]
+      },
+      "linea": {
+        "role": "neutral",
+        "displayName": "linea",
+        "tonalRamp": [
+          "oklch(15% 0.0100 256.01)",
+          "oklch(27% 0.0181 256.01)",
+          "oklch(39% 0.0261 256.01)",
+          "oklch(51% 0.0301 256.01)",
+          "oklch(63% 0.0301 256.01)",
+          "oklch(75% 0.0301 256.01)",
+          "oklch(87% 0.0196 256.01)",
+          "oklch(95% 0.0075 256.01)"
+        ]
+      },
+      "rosa": {
+        "role": "secondary",
+        "displayName": "rosa",
+        "tonalRamp": [
+          "oklch(15% 0.0273 22.62)",
+          "oklch(27% 0.0491 22.62)",
+          "oklch(39% 0.0710 22.62)",
+          "oklch(51% 0.0819 22.62)",
+          "oklch(63% 0.0819 22.62)",
+          "oklch(75% 0.0819 22.62)",
+          "oklch(87% 0.0532 22.62)",
+          "oklch(95% 0.0205 22.62)"
+        ]
+      },
+      "verde-prato": {
+        "role": "tertiary",
+        "displayName": "verde-prato",
+        "tonalRamp": [
+          "oklch(15% 0.0229 135.25)",
+          "oklch(27% 0.0412 135.25)",
+          "oklch(39% 0.0595 135.25)",
+          "oklch(51% 0.0686 135.25)",
+          "oklch(63% 0.0686 135.25)",
+          "oklch(75% 0.0686 135.25)",
+          "oklch(87% 0.0446 135.25)",
+          "oklch(95% 0.0172 135.25)"
+        ]
+      },
+      "suolo": {
+        "role": "neutral",
+        "displayName": "suolo",
+        "tonalRamp": [
+          "oklch(15% 0.0076 95.97)",
+          "oklch(27% 0.0138 95.97)",
+          "oklch(39% 0.0199 95.97)",
+          "oklch(51% 0.0229 95.97)",
+          "oklch(63% 0.0229 95.97)",
+          "oklch(75% 0.0229 95.97)",
+          "oklch(87% 0.0149 95.97)",
+          "oklch(95% 0.0057 95.97)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titoli principali maiuscoli da manifesto."
+      },
+      "title": {
+        "displayName": "Titolo",
+        "purpose": "Titoli di attività e sezioni secondarie."
+      },
+      "body": {
+        "displayName": "Testo",
+        "purpose": "Contenuti editoriali in Barlow."
+      }
+    },
     "shadows": [
       {
         "name": "display-red",
@@ -13,18 +183,33 @@
         "name": "map-red",
         "value": "8px 8px 0 var(--rosso)",
         "purpose": "Cornice della mappa."
+      },
+      {
+        "name": "cta-blue",
+        "value": "5px 5px 0 var(--blu-scuro)",
+        "purpose": "CTA primaria e CTA della home."
+      },
+      {
+        "name": "focus-contrast",
+        "value": "0 0 0 7px var(--navy)",
+        "purpose": "Anello di contrasto con outline crema da 3px, offset 2px; prevale sulle ombre di stato."
       }
     ],
     "motion": [
       {
-        "name": "state",
-        "value": "150ms ease-out",
-        "purpose": "Stati di CTA e tab."
+        "name": "cta-state",
+        "value": "box-shadow 150ms ease-out, transform 150ms ease-out",
+        "purpose": "CTA dell’archivio; con movimento ridotto resta solo l’ombra e il transform è disabilitato."
+      },
+      {
+        "name": "event-hover",
+        "value": "background 150ms ease-out",
+        "purpose": "Feedback cromatico delle righe, mantenuto con movimento ridotto."
       },
       {
         "name": "marea",
         "value": "translateX(-50%) linear infinite",
-        "purpose": "Onde e marquee; disabilitato con movimento ridotto."
+        "purpose": "Onde e marquee dell’archivio; animation:none con movimento ridotto."
       }
     ],
     "breakpoints": [
@@ -44,24 +229,27 @@
   },
   "components": [
     {
-      "name": "CTA primaria",
+      "name": "CTA primaria archivio",
       "kind": "button",
       "refersTo": "button-primary",
-      "html": "<a class=\"ds-primary\" href=\"#programma\">Il programma</a>",
-      "css": ".ds-primary{display:inline-flex;min-height:52px;align-items:center;padding:15px 26px;background:var(--rosso);color:white;font:800 20px/1 \"Barlow Condensed\",sans-serif;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--blu-scuro)}.ds-primary:hover{box-shadow:2px 2px 0 var(--blu-scuro);transform:translate(3px,3px)}.ds-primary:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+      "description": "CTA rettangolare dell’archivio con ombra strutturale e movimento ridotto mirato.",
+      "html": "<a class=\"ds-primary\" href=\"#materiali\">Foto e rassegna</a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 26px;background:var(--rosso);color:#fff;font:800 20px/1 \"Barlow Condensed\",sans-serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--blu-scuro);transition:box-shadow 150ms ease-out,transform 150ms ease-out}.ds-primary:hover{background:#b00f14;color:#fff;box-shadow:2px 2px 0 var(--blu-scuro);transform:translate(3px,3px)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-filter:focus-visible,.ds-nav a:focus-visible,.ds-edition:focus-visible{outline:3px solid var(--crema);outline-offset:2px;box-shadow:0 0 0 7px var(--navy)!important}@media(prefers-reduced-motion:reduce){.ds-primary{transition:box-shadow 150ms ease-out}.ds-primary:hover{transform:none}}"
     },
     {
-      "name": "CTA secondaria",
+      "name": "CTA secondaria archivio",
       "kind": "button",
       "refersTo": "button-secondary",
-      "html": "<a class=\"ds-secondary\" href=\"#manifesto\">Il manifesto</a>",
-      "css": ".ds-secondary{display:inline-flex;min-height:52px;align-items:center;padding:15px 26px;background:white;color:var(--blu-scuro);font:800 20px/1 \"Barlow Condensed\",sans-serif;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--rosso)}.ds-secondary:hover{box-shadow:2px 2px 0 var(--rosso);transform:translate(3px,3px)}.ds-secondary:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+      "description": "CTA chiara con ombra rossa, come nel riferimento originale.",
+      "html": "<a class=\"ds-secondary\" href=\"#programma\">Il programma</a>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 26px;background:#fff;color:var(--blu-scuro);font:800 20px/1 \"Barlow Condensed\",sans-serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:5px 5px 0 var(--rosso);transition:box-shadow 150ms ease-out,transform 150ms ease-out}.ds-secondary:hover{color:var(--blu-scuro);box-shadow:2px 2px 0 var(--rosso);transform:translate(3px,3px)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-filter:focus-visible,.ds-nav a:focus-visible,.ds-edition:focus-visible{outline:3px solid var(--crema);outline-offset:2px;box-shadow:0 0 0 7px var(--navy)!important}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:box-shadow 150ms ease-out}.ds-secondary:hover{transform:none}}"
     },
     {
       "name": "Filtro categoria",
       "kind": "chip",
+      "description": "Categoria attiva in blu; lo stato è comunicato anche da aria-pressed.",
       "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Tutto</button>",
-      "css": ".ds-filter{min-height:44px;padding:10px 16px;border:2px solid var(--blu);border-radius:999px;color:white;background:var(--blu);font:600 16px \"Barlow\",sans-serif;cursor:pointer}.ds-filter:hover{background:var(--blu-scuro)}.ds-filter:focus-visible{outline:4px solid var(--rosso-sole);outline-offset:4px}"
+      "css": ".ds-filter{min-height:44px;padding:10px 16px;border:2px solid var(--blu);border-radius:999px;color:var(--blu);background:transparent;font:600 16px \"Barlow\",sans-serif;cursor:pointer}.ds-filter[aria-pressed=\"true\"]{color:#fff;background:var(--blu)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-filter:focus-visible,.ds-nav a:focus-visible,.ds-edition:focus-visible{outline:3px solid var(--crema);outline-offset:2px;box-shadow:0 0 0 7px var(--navy)!important}"
     },
     {
       "name": "Orario evento",
@@ -74,24 +262,35 @@
       "kind": "card",
       "html": "<section class=\"ds-place\"><h3>Palco</h3><p>Concerti / Live ogni sera.</p></section>",
       "css": ".ds-place{padding:22px;background:var(--blu-scuro);color:white}.ds-place h3{margin:0;font:800 28px/1.05 \"Barlow Condensed\",sans-serif;text-transform:uppercase}.ds-place p{margin:8px 0 0;font:400 16px/1.45 \"Barlow\",sans-serif}"
+    },
+    {
+      "name": "Navigazione principale",
+      "kind": "nav",
+      "description": "Link maiuscoli su blu scuro; scorrimento nativo orizzontale su schermi stretti.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navigazione principale\"><a href=\"#manifesto\">Manifesto</a><a href=\"#info\">Info</a><a href=\"#2026\">Village 2026</a><a href=\"#2027\" aria-current=\"page\">Village 2027</a></nav>",
+      "css": ".ds-nav{display:flex;gap:22px;padding:12px 24px;overflow-x:auto;background:var(--blu-scuro);scrollbar-width:thin}.ds-nav a{display:block;min-width:44px;min-height:44px;align-content:center;color:#fff;font:700 17px/1 \"Barlow Condensed\",sans-serif;letter-spacing:.06em;text-align:center;text-decoration:none;text-transform:uppercase;white-space:nowrap}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--rosa)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-filter:focus-visible,.ds-nav a:focus-visible,.ds-edition:focus-visible{outline:3px solid var(--crema);outline-offset:2px;box-shadow:0 0 0 7px var(--navy)!important}"
+    },
+    {
+      "name": "Collegamento edizione",
+      "kind": "custom",
+      "description": "Riga editoriale della home, senza card o contenitori aggiuntivi.",
+      "html": "<a class=\"ds-edition\" href=\"#2026\"><strong>2026</strong><span>Programma, mostre e materiali dell’edizione</span><span>Esplora l’archivio</span></a>",
+      "css": ".ds-edition{display:grid;grid-template-columns:max-content minmax(0,1fr) auto;align-items:center;gap:16px 32px;min-height:112px;padding:24px 0;border-top:2px solid var(--blu-scuro);color:var(--navy);background:var(--crema);text-decoration:none;overflow-wrap:anywhere}.ds-edition strong{font:800 clamp(3rem,6vw,5rem)/1 \"Barlow Condensed\",sans-serif}.ds-edition span{font:400 18px/1.45 \"Barlow\",sans-serif}.ds-edition span:last-child{font-weight:600;text-decoration:underline}.ds-edition:hover{color:var(--rosso)}.ds-primary:focus-visible,.ds-secondary:focus-visible,.ds-filter:focus-visible,.ds-nav a:focus-visible,.ds-edition:focus-visible{outline:3px solid var(--crema);outline-offset:2px;box-shadow:0 0 0 7px var(--navy)!important}@media(max-width:640px){.ds-edition{grid-template-columns:max-content minmax(0,1fr);gap:12px 16px}.ds-edition span:last-child{grid-column:2}}"
     }
   ],
   "narrative": {
     "northStar": "Manifesto popolare",
-    "overview": "Riferimento visivo definitivo: design/Marea Village.dc.html. Colori piatti, tipografia condensed e ombre strutturali conservano l'identità fornita.",
-    "keyCharacteristics": [
-      "Campiture blu e crema",
-      "Titoli maiuscoli condensed",
-      "Ombre rosse piene",
-      "Onde SVG"
-    ],
+    "overview": "Il file `design/Marea Village.dc.html` è il riferimento definitivo. L'interfaccia usa un linguaggio da manifesto popolare: colori saturi piatti, tipografia condensed maiuscola, bordi netti, ombre rosse/blu a pieno offset e onde come transizioni di sezione.",
+    "keyCharacteristics": [],
+    "rules": [],
     "dos": [
-      "Preservare gli asset forniti.",
-      "Verificare contrasto e target touch."
+      "**Do** mantenere i quattro tab giorno nella stessa riga e i target da almeno 44 px.",
+      "**Do** usare il corallo accessibile per il testo su blu scuro.",
+      "**Do** preservare logo, illustrazione e geometria della mappa forniti."
     ],
     "donts": [
-      "Non riscrivere i contenuti.",
-      "Non introdurre font remoti."
+      "**Don't** introdurre font remoti, librerie UI o riscritture editoriali.",
+      "**Don't** mostrare campi vuoti o presentare la mappa come confermata prima della verifica."
     ]
   }
 }

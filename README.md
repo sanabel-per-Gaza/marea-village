@@ -130,7 +130,9 @@ bun run test:browser
 bun run audit
 ```
 
-Si può specificare un browser con `CHROME_PATH` e la radice del sito (con slash finale) con `TEST_URL`. I controlli visitano home, archivio 2026 e pagina 2027. I test verificano assenza di overflow, quattro tab sulla stessa riga, target di almeno 44 px, filtri, accordion, mappa, navigazione da tastiera, SEO e hydration con un orologio simulato nel fuso New York.
+Si può specificare un browser con `CHROME_PATH` e la radice del sito (con slash finale) con `TEST_URL`. `AUDIT_DIR` permette di salvare Lighthouse fuori da `docs/audits/`, senza sovrascrivere i report storici. I controlli visitano home, archivio 2026 e pagina 2027. I test verificano assenza di overflow, quattro tab sulla stessa riga, target di almeno 44 px, filtri, accordion, mappa, navigazione da tastiera, SEO e hydration con un orologio simulato nel fuso New York.
+
+La verifica Impeccable 4.8 è documentata in **`docs/IMPECCABLE-AUDIT.md`**, con riepilogo macchina in `docs/audits/impeccable-4.8.json`. La suite browser comprende anche focus contrastato, reflow a 320 px, testo al 200%, movimento ridotto e tap/scorrimento touch sintetici in Chromium (non dispositivi fisici).
 
 Open Graph dell’archivio 2026 (`static/og-marea.png`, 1200×630) è generato dall’hero della pagina dell’edizione (lo script visita automaticamente `/marea-village-2026/`):
 

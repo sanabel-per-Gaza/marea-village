@@ -12,11 +12,11 @@ SvelteKit con `@sveltejs/adapter-static`, contenuti JSON, CSS nei componenti e f
 
 ## Users
 
-Persone interessate a partecipare a MAREA Village, soprattutto da mobile durante la pianificazione o la permanenza al festival. Devono capire rapidamente identità, date, programma, luoghi e finalità dell'evento.
+Persone interessate a MAREA Village, soprattutto da mobile. Devono conoscere identità e finalità del festival, ritrovare il programma e i materiali dell’edizione 2026 e raggiungere lo spazio dedicato al 2027.
 
 ## Product Purpose
 
-Sito ufficiale statico di MAREA Village, festival di arte, cultura e politica previsto dall'8 all'11 ottobre 2026 all'ex base NATO di Bagnoli, Napoli. Il successo consiste nel rendere programma e orientamento nel villaggio immediatamente accessibili e nel comunicare manifesto, mostre, Sanabel e adesioni senza riscrivere i contenuti forniti.
+Sito ufficiale statico di MAREA Village, festival di arte, cultura e politica a Bagnoli, Napoli. La home presenta identità, manifesto e informazioni; l’archivio conserva l’edizione dell’8–11 ottobre 2026 all’ex base NATO, con programma e materiali; lo spazio 2027 è in allestimento, senza date o programma confermati. I testi forniti vanno preservati.
 
 ## Positioning
 
@@ -24,7 +24,7 @@ Un festival costruito dai comitati di Bagnoli e dai movimenti sociali napoletani
 
 ## Operating Context
 
-Pagina unica a sezioni con navigazione ad ancore. Il programma si consulta per giorno e categoria; durante il festival segnala il giorno corrente e le attività in corso nel fuso Europe/Rome. La mappa collega luoghi e attività del giorno selezionato.
+Tre pagine prerenderizzate: `/`, `/marea-village-2026/` e `/marea-village-2027/`. La home mantiene Manifesto e Info, la foto proposta e l’accesso alle edizioni. L’archivio raccoglie l’album pubblico Google Photos, rassegna stampa, sette link web/social e tutti i contenuti preesistenti. Il programma resta consultabile per giorno e categoria; la funzione temporale è attiva soltanto durante le date 2026 nel fuso Europe/Rome. La mappa rimane dichiaratamente provvisoria.
 
 ## Capabilities and Constraints
 
@@ -45,12 +45,15 @@ Nome MAREA Village, logo e illustrazione Sanabel forniti. Il riferimento visivo 
 - `design/Marea Village.dc.html`: riferimento visivo e funzionale.
 - `src/lib/data/programma.json`: date, categorie, eventi e mostre.
 - `src/lib/data/contenuti.json`: manifesto, luoghi, stand e adesioni.
+- `src/lib/data/archivio-2026.json`: album Google Photos e link della rassegna forniti.
 - `static/marea-logo.png` e `static/boat.png`: asset pubblicabili.
-- Non sono disponibili contatti, link social, link donazione o indirizzo esatto verificati.
+- `design/marea-home-original.jpg`: foto proposta, pubblicata in WebP responsive nella home.
+- Contatto verificato: `info@mareavillage.it`. I profili social ufficiali, il link donazione e l’indirizzo esatto non sono ancora disponibili; i post della rassegna non sono profili ufficiali.
+- Dominio GitHub Pages configurato e verificato: `mareavillage.it`, con `static/CNAME`.
 
 ## Product Principles
 
-- Il programma viene prima: consultabile in pochi tocchi e sempre leggibile.
+- Separare identità corrente e archivio delle edizioni; il programma 2026 resta consultabile in pochi tocchi e sempre leggibile.
 - L'identità politica e culturale resta esplicita, senza neutralizzazioni.
 - La mappa deve orientare, non decorare.
 - Ogni contenuto proviene dai dati forniti ed è aggiornabile senza toccare il layout.

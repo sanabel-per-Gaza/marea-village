@@ -1,0 +1,197 @@
+{
+  "generatedAt": "2026-10-28T09:44:31.856843+00:00",
+  "impeccable": "4.8.0",
+  "lighthouse": {
+    "mobile": {
+      "url": "http://127.0.0.1:4178/",
+      "scores": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 2404.0200000000004,
+          "display": "2.4 s"
+        },
+        "largest-contentful-paint": {
+          "value": 3456.0300000000007,
+          "display": "3.5 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.05005666926687633,
+          "display": "0.05"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "display": "0 ms"
+        }
+      }
+    },
+    "desktop": {
+      "url": "http://127.0.0.1:4178/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 524.77125,
+          "display": "0.5 s"
+        },
+        "largest-contentful-paint": {
+          "value": 924.77125,
+          "display": "0.9 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.001355192057291667,
+          "display": "0.001"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "display": "0 ms"
+        }
+      }
+    }
+  },
+  "browser": {
+    "verification": {
+      "reports": [
+        {
+          "width": 360,
+          "overflow": false,
+          "targets": [],
+          "violations": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "targets": [],
+          "violations": []
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "targets": [],
+          "violations": []
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "targets": [],
+          "violations": []
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "targets": [],
+          "violations": []
+        }
+      ],
+      "errors": []
+    },
+    "pages-verification": {
+      "reports": [
+        {
+          "route": "home",
+          "width": 1024,
+          "violations": []
+        },
+        {
+          "route": "home",
+          "width": 360,
+          "violations": []
+        },
+        {
+          "route": "home",
+          "width": 768,
+          "violations": []
+        },
+        {
+          "route": "home",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "home",
+          "width": 390,
+          "violations": []
+        },
+        {
+          "route": "marea-village-2027/",
+          "width": 1024,
+          "violations": []
+        },
+        {
+          "route": "marea-village-2027/",
+          "width": 360,
+          "violations": []
+        },
+        {
+          "route": "marea-village-2027/",
+          "width": 768,
+          "violations": []
+        },
+        {
+          "route": "marea-village-2027/",
+          "width": 1440,
+          "violations": []
+        },
+        {
+          "route": "marea-village-2027/",
+          "width": 390,
+          "violations": []
+        }
+      ],
+      "errors": []
+    },
+    "accessibility-verification": {
+      "reports": [
+        {
+          "route": "home",
+          "focusContrast": 14.08,
+          "reflow320": true,
+          "text200Percent": true
+        },
+        {
+          "route": "marea-village-2026/",
+          "focusContrast": 14.08,
+          "reflow320": true,
+          "text200Percent": true
+        },
+        {
+          "route": "marea-village-2027/",
+          "focusContrast": 14.08,
+          "reflow320": true,
+          "text200Percent": true
+        },
+        {
+          "synthesizedChromiumTouch": "day selection, category selection and horizontal filter drag passed",
+          "physicalDevice": "not tested"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "detector": {
+    "files": "src",
+    "counts": {
+      "advisory": 96,
+      "warning": 1
+    },
+    "advisories": {
+      "design-system-color": 50,
+      "design-system-font-size": 46
+    },
+    "intentionalException": {
+      "rule": "side-tab",
+      "file": "src/routes/marea-village-2026/+page.svelte",
+      "detail": "Bordo dei relatori preservato dal riferimento originale, già documentato in docs/REVIEW.md."
+    }
+  }
+}

@@ -5,7 +5,8 @@ import { launchBrowser } from './browser.mjs';
 
 const contents = JSON.parse(await readFile(new URL('../src/lib/data/contenuti.json', import.meta.url), 'utf8'));
 const contactLinks = [...Object.entries(contents.contatti ?? {}), ...Object.entries(contents.social ?? {})].filter(([, value]) => value.trim());
-const url = process.env.TEST_URL || 'http://127.0.0.1:4174/marea-village/';
+const homeUrl = process.env.TEST_URL || 'http://127.0.0.1:4174/marea-village/';
+const url = new URL('marea-village-2026/', homeUrl).href;
 const out = process.env.SCREENSHOT_DIR || 'docs/screenshots';
 await mkdir(out, { recursive: true });
 const browser = await launchBrowser();
@@ -29,7 +30,7 @@ try {
     await expect(page.getByRole('tab')).toHaveCount(4);
     const pdfLink = page.getByRole('link', { name: 'Scarica il programma · PDF', exact: true });
     await expect(pdfLink).toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
-    await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', url).pathname);
+    await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', homeUrl).pathname);
     if (width === 1440) {
       const [download] = await Promise.all([page.waitForEvent('download'), pdfLink.click()]);
       // PDF viewers may prefer the URL filename over the download attribute.

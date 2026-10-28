@@ -1,6 +1,14 @@
 # MAREA Village
 
-8–11 ottobre 2026 · ex base NATO · Bagnoli, Napoli.
+Arte, cultura e politica · Bagnoli, Napoli.
+
+## Pagine
+
+- `/`: home con manifesto, informazioni e accesso alle edizioni.
+- `/marea-village-2026/`: archivio dell’8–11 ottobre 2026, con programma, mostre, villaggio, Sanabel e adesioni.
+- `/marea-village-2027/`: spazio in allestimento, senza date o programma non confermati.
+
+Il manifesto è condiviso in `src/lib/components/Manifesto.svelte`; contatti e social della home e della pagina 2027 usano sempre `src/lib/data/contenuti.json`.
 
 **Sito:** https://sanabel-per-gaza.github.io/marea-village/
 
@@ -104,7 +112,7 @@ bun run test:browser
 bun run audit
 ```
 
-Si può specificare un browser con `CHROME_PATH` e un sito con `TEST_URL`. I test verificano assenza di overflow, quattro tab sulla stessa riga, target di almeno 44 px, filtri, accordion, mappa, navigazione da tastiera, SEO e hydration con un orologio simulato nel fuso New York.
+Si può specificare un browser con `CHROME_PATH` e la radice del sito (con slash finale) con `TEST_URL`. I controlli visitano home, archivio 2026 e pagina 2027. I test verificano assenza di overflow, quattro tab sulla stessa riga, target di almeno 44 px, filtri, accordion, mappa, navigazione da tastiera, SEO e hydration con un orologio simulato nel fuso New York.
 
 Open Graph (`static/og-marea.png`, 1200×630) è generato dall'hero:
 

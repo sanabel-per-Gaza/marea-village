@@ -76,6 +76,13 @@ La sorgente è `src/lib/data/contenuti.json`:
 
 Oggetti vuoti e valori vuoti non generano link o sezioni. Non aggiungere contatti o posizioni non verificati. La geometria SVG è in `src/lib/components/VillageMap.svelte`.
 
+## Foto della home
+
+La foto proposta da Mauro è servita localmente, senza dipendere da URL temporanei Google Photos:
+[fonte condivisa](https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipMDSEOzLYq30HUiyuBLwPg1PgcB51t9Zhkf0w_E?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB).
+
+Originale: `design/marea-home-original.jpg` (2048×921). Derivati pubblici: `static/marea-home-{720,1280,2048}.webp` e `static/og-marea-home.jpg`. La foto è mostrata per intero anche su mobile; le dimensioni dichiarate evitano salti di layout. L’immagine Open Graph del 2026 resta quella dell’edizione.
+
 ## Materiali dell’archivio 2026
 
 La sorgente è **`src/lib/data/archivio-2026.json`**:

@@ -17,7 +17,9 @@
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={siteUrl ? `${siteUrl}/og-marea-home.jpg` : `${base}/og-marea-home.jpg`} />
-  <meta property="og:image:alt" content="MAREA Village" />
+  <meta property="og:image:alt" content="Il palco di MAREA Village a Bagnoli" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   {#if siteUrl}
     <link rel="canonical" href={siteUrl + path} />

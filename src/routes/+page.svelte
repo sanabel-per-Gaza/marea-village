@@ -14,7 +14,7 @@
     <div class="hero-inner">
       <h1>
         <span class="sr-only">MAREA Village</span>
-        <img src={`${base}/marea-logo-720.webp`} srcset={`${base}/marea-logo-720.webp 720w, ${base}/marea-logo-1200.webp 1200w`} sizes="(max-width: 640px) calc(100vw - 32px), 520px" alt="" width="1470" height="474" fetchpriority="high" />
+        <img src={`${base}/marea-logo-720.webp`} srcset={`${base}/marea-logo-720.webp 720w, ${base}/marea-logo-1200.webp 1200w`} sizes="(max-width: 640px) calc(100vw - 32px), 520px" alt="" width="1470" height="474" />
       </h1>
       <div class="hero-copy">
         <p>La marea avanza…<br /><span>tuffati!</span></p>
@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
+    <img class="home-photo" src={`${base}/marea-home-1280.webp`} srcset={`${base}/marea-home-720.webp 720w, ${base}/marea-home-1280.webp 1280w, ${base}/marea-home-2048.webp 2048w`} sizes="100vw" alt="Il palco di MAREA Village a Bagnoli, con lo striscione Mediterraneo, Arte, Resistenza, Ecologia." width="2048" height="921" fetchpriority="high" />
   </header>
 
   <section class="editions" aria-labelledby="edizioni-title">
@@ -44,7 +45,8 @@
 
 <style>
   .content, .hero-inner { width: min(100%, var(--content)); margin-inline: auto; }
-  .home-hero { color: #fff; background: var(--blu); }
+  .home-hero { color: #fff; background: var(--blu); border-bottom: 0.75rem solid var(--rosso); }
+  .home-photo { display: block; width: 100%; height: auto; }
   .hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem; padding: 4rem var(--gutter); }
   h1 { margin: 0; }
   h1 img { display: block; width: 100%; height: auto; filter: drop-shadow(5px 5px 0 var(--rosso)); }

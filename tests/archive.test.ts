@@ -16,7 +16,16 @@ describe('archivio 2026', () => {
       expect(item.fonte.trim()).not.toBe('');
     }
   });
-  test('does not invent the missing gallery', () => {
-    expect(archivio.galleria).toEqual({ albumUrl: '', foto: [] });
+  test('gallery accepts only a verified album or described local photos', () => {
+    if (archivio.galleria.albumUrl) {
+      expect(new URL(archivio.galleria.albumUrl).protocol).toBe('https:');
+    }
+    const photos = archivio.galleria.foto as { src: string; alt: string; width: number; height: number }[];
+    for (const photo of photos) {
+      expect(photo.src.startsWith('/') && !photo.src.startsWith('//')).toBe(true);
+      expect(photo.alt.trim()).not.toBe('');
+      expect(photo.width).toBeGreaterThan(0);
+      expect(photo.height).toBeGreaterThan(0);
+    }
   });
 });

@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { launchBrowser } from './browser.mjs';
 
+const archive = JSON.parse(await readFile(new URL('../src/lib/data/archivio-2026.json', import.meta.url), 'utf8'));
 const contents = JSON.parse(await readFile(new URL('../src/lib/data/contenuti.json', import.meta.url), 'utf8'));
 const contactLinks = [...Object.entries(contents.contatti ?? {}), ...Object.entries(contents.social ?? {})].filter(([, value]) => value.trim());
 const homeUrl = process.env.TEST_URL || 'http://127.0.0.1:4174/marea-village/';
@@ -30,7 +31,7 @@ try {
     await expect(page.getByRole('tab')).toHaveCount(4);
     await expect(page.locator('#rassegna-web li')).toHaveCount(7);
     await expect(page.locator('#rassegna-stampa a')).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ?usp=sharing');
-    await expect(page.locator('#galleria')).toHaveCount(0);
+    await expect(page.locator('#galleria')).toHaveCount(archive.galleria.albumUrl || archive.galleria.foto.length ? 1 : 0);
     const pdfLink = page.getByRole('link', { name: 'Scarica il programma · PDF', exact: true });
     await expect(pdfLink).toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
     await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', homeUrl).pathname);

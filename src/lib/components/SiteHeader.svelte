@@ -26,7 +26,7 @@
   .nav-logo img { display: block; width: auto; height: 2rem; }
   .nav-scroll { min-width: 0; flex: 1; overflow-x: auto; scrollbar-width: thin; }
   .nav-links { display: flex; gap: 1.375rem; width: max-content; margin-left: auto; }
-  .nav-links a { display: block; min-height: 2.75rem; padding-block: 0.75rem; color: #fff; font: 700 1.0625rem/1 'Barlow Condensed', sans-serif; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+  .nav-links a { display: block; min-width: 2.75rem; min-height: 2.75rem; text-align: center; padding-block: 0.75rem; color: #fff; font: 700 1.0625rem/1 'Barlow Condensed', sans-serif; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
   .nav-links a:hover, .nav-links a[aria-current] { color: var(--rosa); }
   @media (max-width: 640px) {
     .nav-inner { align-items: stretch; flex-direction: column; gap: 0; padding-bottom: 0; }

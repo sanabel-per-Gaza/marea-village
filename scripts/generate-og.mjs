@@ -3,7 +3,8 @@ import { launchBrowser } from './browser.mjs';
 const browser = await launchBrowser();
 try {
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
-  await page.goto(process.env.TEST_URL || 'http://127.0.0.1:5173/', { waitUntil: 'networkidle' });
+  const homeUrl = process.env.TEST_URL || 'http://127.0.0.1:5173/';
+  await page.goto(new URL('marea-village-2026/', homeUrl).href, { waitUntil: 'networkidle' });
   await page.evaluate(async () => {
     await document.fonts.ready;
     for (const image of document.querySelectorAll('.hero img')) await image.decode();

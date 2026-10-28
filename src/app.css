@@ -36,6 +36,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-wrap: anywhere;
   background: var(--crema);
   overflow-x: hidden;
 }
@@ -52,8 +53,10 @@ body {
 }
 
 :focus-visible {
-  outline: 4px solid var(--rosso-sole);
-  outline-offset: 4px;
+  outline: 3px solid var(--crema);
+  outline-offset: 2px;
+  /* Keep the contrasting ring above component hover and selected shadows. */
+  box-shadow: 0 0 0 7px var(--navy) !important;
 }
 
 button,
@@ -96,12 +99,4 @@ svg {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
 }

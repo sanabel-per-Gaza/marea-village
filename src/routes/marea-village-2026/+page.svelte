@@ -1470,7 +1470,13 @@
       animation: none;
     }
 
-    .button:hover {
+    .button,
+    .day-tabs button {
+      transition: box-shadow 150ms ease-out;
+    }
+
+    .button:hover,
+    .day-tabs button.active {
       transform: none;
     }
   }

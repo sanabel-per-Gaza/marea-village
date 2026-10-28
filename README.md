@@ -89,10 +89,10 @@ La sorgente è **`src/lib/data/archivio-2026.json`**:
 
 - `rassegnaStampa`: cartella Google Drive fornita.
 - `rassegnaWeb`: sette articoli, video e post forniti, con fonte, titolo e URL.
-- `galleria.albumUrl`: link all’album pubblico della quattro giorni, quando disponibile.
+- `galleria.albumUrl`: album pubblico Google Photos della quattro giorni, collegato da “Sfoglia l’album completo” nella sezione Foto dell’archivio.
 - `galleria.foto`: foto locali in `static/`, con `src` (percorso che inizia con `/`), `alt`, `width`, `height` e `didascalia` opzionale.
 
-La galleria resta nascosta se foto e URL dell’album sono assenti. **Da ricevere:** galleria della quattro giorni e profili social ufficiali. I post della rassegna non vengono usati come profili ufficiali.
+La galleria resta nascosta se foto e URL dell’album sono assenti. L’album fornito è pubblico e non richiede di scaricare le foto per pubblicarne il collegamento; le foto si consultano su Google Photos. **Da ricevere:** profili social ufficiali. I post della rassegna non vengono usati come profili ufficiali.
 
 ## GitHub Pages
 

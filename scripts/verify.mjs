@@ -32,6 +32,9 @@ try {
     await expect(page.locator('#rassegna-web li')).toHaveCount(7);
     await expect(page.locator('#rassegna-stampa a')).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ?usp=sharing');
     await expect(page.locator('#galleria')).toHaveCount(archive.galleria.albumUrl || archive.galleria.foto.length ? 1 : 0);
+    if (archive.galleria.albumUrl) {
+      await expect(page.locator('#galleria').getByRole('link', { name: 'Sfoglia l’album completo', exact: true })).toHaveAttribute('href', archive.galleria.albumUrl);
+    }
     const pdfLink = page.getByRole('link', { name: 'Scarica il programma · PDF', exact: true });
     await expect(pdfLink).toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
     await expect(pdfLink).toHaveAttribute('href', new URL('programma-marea-village.pdf', homeUrl).pathname);
@@ -142,6 +145,9 @@ try {
   await noJsPage.goto(url);
   await expect(noJsPage.getByText('Guerra e libertà di informazione', { exact: true })).toBeVisible();
   await expect(noJsPage.locator('.now-summary')).toHaveCount(0);
+  if (archive.galleria.albumUrl) {
+    await expect(noJsPage.locator('#galleria').getByRole('link', { name: 'Sfoglia l’album completo', exact: true })).toHaveAttribute('href', archive.galleria.albumUrl);
+  }
   await expect(noJsPage.getByRole('link', { name: 'Scarica il programma · PDF', exact: true }))
     .toHaveAttribute('download', 'PROGRAMMA MAREA VILLAGE.pdf');
   if (!contents.posizioniConfermate) {

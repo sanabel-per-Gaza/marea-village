@@ -7,7 +7,8 @@ Questa verifica riguarda la separazione in tre pagine; `docs/REVIEW.md` e i repo
 - Home: foto proposta da Mauro scaricata dalla condivisione Google Photos e pubblicata localmente in WebP responsive, manifesto integrale condiviso, Info, collegamenti alle due edizioni.
 - Archivio 2026: programma e PDF, mostre, manifesto, villaggio, Sanabel e adesioni preservati. Aggiunti cartella stampa Google Drive e tutti i sette link web/social forniti.
 - Pagina 2027: “Spazio in allestimento”, senza inventare date, programma o luogo della nuova edizione.
-- I link ai profili ufficiali e la galleria restano in attesa dei materiali: nessun post della rassegna è spacciato per profilo ufficiale, nessuna immagine è usata come galleria senza conferma.
+- Galleria: album pubblico Google Photos fornito dall’utente, accessibile senza login e collegato da “Sfoglia l’album completo”. Le foto si consultano sul servizio esterno, non sono state importate nel sito.
+- I link ai profili ufficiali restano in attesa: nessun post della rassegna è spacciato per profilo ufficiale.
 
 ## Verifiche eseguite
 
@@ -28,6 +29,6 @@ Eseguito una volta sui componenti e sulle pagine modificati. L’unico warning n
 
 ## Limiti
 
-- Servono URL dei profili social ufficiali e foto o album della quattro giorni per completare quei due punti.
+- Servono ancora gli URL dei profili social ufficiali.
 - Gli URL esterni sono quelli ricevuti: disponibilità e richieste di accesso dipendono da ANSA, Google Drive, Instagram e Facebook.
 - Nessun push o deploy eseguito.

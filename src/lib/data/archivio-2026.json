@@ -3,7 +3,69 @@
     "albumUrl": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB",
     "foto": []
   },
-  "rassegnaStampa": "https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ?usp=sharing",
+  "fonteRassegnaStampa": "https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ",
+  "raccoltaStampa": {
+    "src": "/rassegna-2026/rassegna-stampa-marea-village-2026.pdf",
+    "bytes": 7215605,
+    "pagine": 10
+  },
+  "rassegnaStampa": [
+    {
+      "titolo": "Corriere del Mezzogiorno · 10 ottobre 2026",
+      "src": "/rassegna-2026/corriere-mezzogiorno-10-ottobre-2026.pdf",
+      "bytes": 324524,
+      "pagineOriginali": [
+        1,
+        3
+      ],
+      "fonte": "https://drive.google.com/file/d/17GgVv0M9pWi6tcRwWOTd5PnVGonEs9Be/view",
+      "sha256Originale": "5bbd37791f4b3fcc1d5b3160928784bc8e50f918d2a9d58235262a07e1f718af"
+    },
+    {
+      "titolo": "Il Fatto Quotidiano · 11 ottobre 2026",
+      "src": "/rassegna-2026/fatto-quotidiano-11-ottobre-2026.pdf",
+      "bytes": 660019,
+      "pagineOriginali": [
+        4
+      ],
+      "fonte": "https://drive.google.com/file/d/1JfqSph_PfiwiFoI2yJumzOOAOUXgHNUI/view",
+      "sha256Originale": "b0fcab7d196bb3431e2692752fd7f0bd9031aee55161861aa256d7767cfaa968"
+    },
+    {
+      "titolo": "Il Mattino Napoli · 11 ottobre 2026",
+      "src": "/rassegna-2026/mattino-napoli-11-ottobre-2026.pdf",
+      "bytes": 827633,
+      "pagineOriginali": [
+        21,
+        24
+      ],
+      "fonte": "https://drive.google.com/file/d/1qIKepCfcMRO4TQ5BGykHzSrJL8DJHUm8/view",
+      "sha256Originale": "8a4455c19fe7aadcf58f7227e0f2a1cc94c1aeec0dc5451dccac6b7c5d98b39e"
+    },
+    {
+      "titolo": "la Repubblica Napoli · 11 ottobre 2026",
+      "src": "/rassegna-2026/repubblica-napoli-11-ottobre-2026.pdf",
+      "bytes": 2606823,
+      "pagineOriginali": [
+        26,
+        43,
+        45
+      ],
+      "fonte": "https://drive.google.com/file/d/1WR6WGqNarpsxP1CWp7lNjnSFl36_PU6B/view",
+      "sha256Originale": "10195373ab0df161992562c77479671c46c57af597e3ffd74dced61fdee25ef0"
+    },
+    {
+      "titolo": "Corriere.it · 11 ottobre 2026",
+      "src": "/rassegna-2026/corriere-it-11-ottobre-2026.pdf",
+      "bytes": 2797246,
+      "pagineOriginali": [
+        1,
+        2
+      ],
+      "fonte": "https://drive.google.com/file/d/1ocADwPzeesQZcuqucCulq2fcklhV7gX5/view",
+      "sha256Originale": "bff7558ce9bdb5feb2d984ffddd202bebfff83d3ae753a404dd043c64fef982f"
+    }
+  ],
   "rassegnaWeb": [
     {
       "fonte": "ANSA",

@@ -11,6 +11,10 @@
   }
 
   const photos: Photo[] = archivio.galleria.foto;
+
+  function fileSize(bytes: number) {
+    return `${(bytes / 1_000_000).toLocaleString('it-IT', { maximumFractionDigits: 1 })} MB`;
+  }
 </script>
 
 <section id="materiali" class="materials" aria-labelledby="materiali-title">
@@ -38,7 +42,18 @@
 
     <section id="rassegna-stampa" aria-labelledby="stampa-title">
       <h3 id="stampa-title">Rassegna stampa</h3>
-      <a class="press-link" href={archivio.rassegnaStampa}>Sfoglia la rassegna stampa su Google Drive</a>
+      <p>Le pagine dedicate a MAREA Village, dai giornali e dai materiali ricevuti.</p>
+      <a class="press-link" href={`${base}${archivio.raccoltaStampa.src}`} download>Scarica la rassegna completa · PDF · {fileSize(archivio.raccoltaStampa.bytes)}</a>
+      <ul class="press-list local-press">
+        {#each archivio.rassegnaStampa as documento}
+          <li>
+            <a href={`${base}${documento.src}`}>
+              <span class="source">PDF · {fileSize(documento.bytes)}</span>
+              <span class="article-title">{documento.titolo}</span>
+            </a>
+          </li>
+        {/each}
+      </ul>
     </section>
 
     <section id="rassegna-web" aria-labelledby="web-title">
@@ -66,6 +81,8 @@
   section section + section { margin-top: 3.5rem; }
   .press-link, .album-link { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--blu-scuro); font-size: 1.25rem; font-weight: 600; }
   .press-list { margin: 0; padding: 0; list-style: none; }
+  .local-press { margin-top: 1.5rem; }
+  p { max-width: 65ch; font-size: 1.125rem; line-height: 1.45; }
   .press-list li { border-top: 1px solid var(--blu-scuro); }
   .press-list li:last-child { border-bottom: 1px solid var(--blu-scuro); }
   .press-list a { display: grid; grid-template-columns: 15rem minmax(0, 1fr); align-items: baseline; gap: 0.5rem 2rem; min-height: 2.75rem; padding-block: 1.5rem; color: var(--navy); text-decoration: none; }

@@ -87,7 +87,9 @@ Originale: `design/marea-home-original.jpg` (2048×921). Derivati pubblici: `sta
 
 La sorgente è **`src/lib/data/archivio-2026.json`**:
 
-- `rassegnaStampa`: cartella Google Drive fornita.
+- `fonteRassegnaStampa`: cartella Google Drive originale, conservata solo come riferimento nei dati.
+- `rassegnaStampa`: cinque PDF locali in `static/rassegna-2026/`, con titolo, dimensioni e pagine estratte dagli originali.
+- `raccoltaStampa`: rassegna unificata scaricabile, dieci pagine. Provenienza e criteri di estrazione in `docs/ARCHIVE-SOURCES.md`.
 - `rassegnaWeb`: sette articoli, video e post forniti, con fonte, titolo e URL.
 - `galleria.albumUrl`: album pubblico Google Photos della quattro giorni, collegato da “Sfoglia l’album completo” nella sezione Foto dell’archivio.
 - `galleria.foto`: foto locali in `static/`, con `src` (percorso che inizia con `/`), `alt`, `width`, `height` e `didascalia` opzionale.

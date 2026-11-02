@@ -30,7 +30,17 @@ try {
     expect(overflow).toBe(false);
     await expect(page.getByRole('tab')).toHaveCount(4);
     await expect(page.locator('#rassegna-web li')).toHaveCount(7);
-    await expect(page.locator('#rassegna-stampa a')).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ?usp=sharing');
+    await expect(page.locator('#rassegna-stampa .press-link')).toHaveAttribute('href', new URL(archive.raccoltaStampa.src.slice(1), homeUrl).pathname);
+    await expect(page.locator('#rassegna-stampa .local-press li')).toHaveCount(archive.rassegnaStampa.length);
+    await expect(page.locator('#rassegna-stampa a[href*="drive.google.com"]')).toHaveCount(0);
+    if (width === 1440) {
+      const response = await page.request.get(new URL(archive.raccoltaStampa.src.slice(1), homeUrl).href);
+      expect(response.ok()).toBe(true);
+      expect((await response.body()).length).toBe(archive.raccoltaStampa.bytes);
+      for (const doc of archive.rassegnaStampa) {
+        await expect(page.locator('#rassegna-stampa .local-press').getByRole('link', { name: new RegExp(doc.titolo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) })).toHaveAttribute('href', new URL(doc.src.slice(1), homeUrl).pathname);
+      }
+    }
     await expect(page.locator('#galleria')).toHaveCount(archive.galleria.albumUrl || archive.galleria.foto.length ? 1 : 0);
     if (archive.galleria.albumUrl) {
       await expect(page.locator('#galleria').getByRole('link', { name: 'Sfoglia l’album completo', exact: true })).toHaveAttribute('href', archive.galleria.albumUrl);

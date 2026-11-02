@@ -30,6 +30,8 @@ try {
     expect(overflow).toBe(false);
     await expect(page.getByRole('tab')).toHaveCount(4);
     await expect(page.locator('#rassegna-web li')).toHaveCount(7);
+    await expect(page.locator('.supporters span')).toHaveCount(40);
+    await expect(page.locator('.supporters')).not.toContainText('e altre realtà, reti e movimenti');
     await expect(page.locator('#rassegna-stampa .press-link')).toHaveAttribute('href', new URL(archive.raccoltaStampa.src.slice(1), homeUrl).pathname);
     await expect(page.locator('#rassegna-stampa .local-press li')).toHaveCount(archive.rassegnaStampa.length);
     await expect(page.locator('#rassegna-stampa a[href*="drive.google.com"]')).toHaveCount(0);

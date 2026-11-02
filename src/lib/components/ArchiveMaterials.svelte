@@ -2,15 +2,10 @@
   import { base } from '$app/paths';
   import archivio from '$lib/data/archivio-2026.json';
 
-  interface Photo {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    didascalia?: string;
-  }
+  import ArchiveSlideshow from '$lib/components/ArchiveSlideshow.svelte';
+  import type { GalleryPhoto } from '$lib/gallery';
 
-  const photos: Photo[] = archivio.galleria.foto;
+  const photos: GalleryPhoto[] = archivio.galleria.foto;
 
   function fileSize(bytes: number) {
     return `${(bytes / 1_000_000).toLocaleString('it-IT', { maximumFractionDigits: 1 })} MB`;
@@ -21,40 +16,32 @@
   <div class="content">
     <h2 id="materiali-title">MAREA Village 2026<br /><span>Foto e rassegna</span></h2>
 
-    {#if photos.length || archivio.galleria.albumUrl}
-      <section id="galleria" aria-labelledby="galleria-title">
-        <h3 id="galleria-title">La quattro giorni in foto</h3>
-        {#if photos.length}
-          <div class="photo-grid">
-            {#each photos as photo}
-              <figure>
-                <a href={`${base}${photo.src}`}>
-                  <img src={`${base}${photo.src}`} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" />
-                </a>
-                {#if photo.didascalia}<figcaption>{photo.didascalia}</figcaption>{/if}
-              </figure>
-            {/each}
-          </div>
-        {/if}
-        {#if archivio.galleria.albumUrl}<a class="album-link" href={archivio.galleria.albumUrl}>Sfoglia l’album completo</a>{/if}
-      </section>
-    {/if}
+    <div class="materials-grid" class:with-gallery={photos.length || archivio.galleria.albumUrl}>
+      {#if photos.length || archivio.galleria.albumUrl}
+        <section id="galleria" aria-labelledby="galleria-title">
+          <h3 id="galleria-title">La quattro giorni in foto</h3>
+          {#if photos.length}<ArchiveSlideshow {photos} />{/if}
+          <p class="gallery-note">Una selezione dall’album fotografico, ancora in aggiornamento.</p>
+          {#if archivio.galleria.albumUrl}<a class="album-link" href={archivio.galleria.albumUrl}>Sfoglia l’album completo</a>{/if}
+        </section>
+      {/if}
 
-    <section id="rassegna-stampa" aria-labelledby="stampa-title">
-      <h3 id="stampa-title">Rassegna stampa</h3>
-      <p>Le pagine dedicate a MAREA Village, dai giornali e dai materiali ricevuti.</p>
-      <a class="press-link" href={`${base}${archivio.raccoltaStampa.src}`} download>Scarica la rassegna completa · PDF · {fileSize(archivio.raccoltaStampa.bytes)}</a>
-      <ul class="press-list local-press">
-        {#each archivio.rassegnaStampa as documento}
-          <li>
-            <a href={`${base}${documento.src}`}>
-              <span class="source">PDF · {fileSize(documento.bytes)}</span>
-              <span class="article-title">{documento.titolo}</span>
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </section>
+      <section id="rassegna-stampa" aria-labelledby="stampa-title">
+        <h3 id="stampa-title">Rassegna stampa</h3>
+        <p>Le pagine dedicate a MAREA Village, dai giornali e dai materiali ricevuti.</p>
+        <a class="press-link" href={`${base}${archivio.raccoltaStampa.src}`} download>Scarica la rassegna completa · PDF · {fileSize(archivio.raccoltaStampa.bytes)}</a>
+        <ul class="press-list local-press">
+          {#each archivio.rassegnaStampa as documento}
+            <li>
+              <a href={`${base}${documento.src}`}>
+                <span class="source">PDF · {fileSize(documento.bytes)}</span>
+                <span class="article-title">{documento.titolo}</span>
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </section>
+    </div>
 
     <section id="rassegna-web" aria-labelledby="web-title">
       <h3 id="web-title">Rassegna web e social network</h3>
@@ -89,12 +76,16 @@
   .source { font: 700 1.125rem/1.3 'Barlow Condensed', sans-serif; text-transform: uppercase; }
   .article-title { max-width: 65ch; font-size: 1.25rem; line-height: 1.4; text-decoration: underline; text-underline-offset: 0.2em; }
   a:hover { color: var(--rosso); }
-  .photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-  figure { margin: 0; }
-  figure img { display: block; width: 100%; height: auto; }
-  figcaption { margin-top: 0.75rem; font-size: 1rem; line-height: 1.4; }
+  .materials-grid { display: grid; gap: 3rem; margin-bottom: 3.5rem; }
+  .materials-grid.with-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .materials-grid > section + section { margin-top: 0; }
+  .local-press a { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; padding-block: 1rem; }
+  .gallery-note { margin: 1.5rem 0 0; }
+  @media (max-width: 900px) {
+    .materials-grid.with-gallery { grid-template-columns: minmax(0, 1fr); }
+  }
   .album-link { margin-top: 1rem; }
   @media (max-width: 640px) {
-    .press-list a, .photo-grid { grid-template-columns: minmax(0, 1fr); }
+    .press-list a { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

@@ -81,7 +81,7 @@ Oggetti vuoti e valori vuoti non generano link o sezioni. Non aggiungere contatt
 La foto proposta da Mauro è servita localmente, senza dipendere da URL temporanei Google Photos:
 [fonte condivisa](https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipMDSEOzLYq30HUiyuBLwPg1PgcB51t9Zhkf0w_E?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB).
 
-Originale: `design/marea-home-original.jpg` (2048×921). Derivati pubblici: `static/marea-home-{720,1280,2048}.webp` e `static/og-marea-home.jpg`. La foto è mostrata per intero anche su mobile; le dimensioni dichiarate evitano salti di layout. L’immagine Open Graph del 2026 resta quella dell’edizione.
+Originale attuale: `design/marea-home-original.jpg` (**2048×921 px**, rapporto circa 2,22:1). Per sostituirlo si può fornire l’originale intero alla massima risoluzione, senza aggiungere cielo: il layout è responsive e non richiede di riprodurre per forza questo rapporto. Derivati pubblici: `static/marea-home-{720,1280,2048}.webp` e `static/og-marea-home.jpg`. La foto è mostrata per intero anche su mobile; le dimensioni dichiarate evitano salti di layout. L’immagine Open Graph del 2026 resta quella dell’edizione.
 
 ## Materiali dell’archivio 2026
 
@@ -92,9 +92,9 @@ La sorgente è **`src/lib/data/archivio-2026.json`**:
 - `raccoltaStampa`: rassegna unificata scaricabile, dieci pagine. Provenienza e criteri di estrazione in `docs/ARCHIVE-SOURCES.md`.
 - `rassegnaWeb`: sette articoli, video e post forniti, con fonte, titolo e URL.
 - `galleria.albumUrl`: album pubblico Google Photos della quattro giorni, collegato da “Sfoglia l’album completo” nella sezione Foto dell’archivio.
-- `galleria.foto`: foto locali in `static/`, con `src` (percorso che inizia con `/`), `alt`, `width`, `height` e `didascalia` opzionale.
+- `galleria.foto`: selezione locale di otto foto in `static/galleria-2026/`, con `src` (960 px), `srcSmall` (480 px), `alt`, `width`, `height` e `fonte` (foto nell’album originale).
 
-La galleria resta nascosta se foto e URL dell’album sono assenti. L’album fornito è pubblico e non richiede di scaricare le foto per pubblicarne il collegamento; le foto si consultano su Google Photos. **Da ricevere:** profili social ufficiali. I post della rassegna non vengono usati come profili ufficiali.
+La galleria resta nascosta se foto e URL dell’album sono assenti. La selezione locale alimenta lo slideshow a sinistra della rassegna su desktop, sopra su mobile; l’album pubblico completo rimane collegato ed è segnalato come ancora in aggiornamento. Lo slideshow cambia foto ogni 6 secondi solo mentre è visibile, con pausa su hover/focus e a scheda nascosta. Con movimento ridotto parte fermo. Prima foto e album restano accessibili senza JavaScript. **Da ricevere:** profili social ufficiali. I post della rassegna non vengono usati come profili ufficiali.
 
 ## GitHub Pages
 

@@ -1,7 +1,72 @@
 {
   "galleria": {
     "albumUrl": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB",
-    "foto": []
+    "foto": [
+      {
+        "src": "/galleria-2026/01-pubblico-bandiera-960.webp",
+        "srcSmall": "/galleria-2026/01-pubblico-bandiera-480.webp",
+        "alt": "Il pubblico di MAREA Village con una grande bandiera palestinese.",
+        "width": 960,
+        "height": 629,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipPjavrW74sLX7NUMgjj1c_lz_lRYqKZSSqUX1E6?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/02-incontro-pubblico-960.webp",
+        "srcSmall": "/galleria-2026/02-incontro-pubblico-480.webp",
+        "alt": "Un incontro pubblico sotto lo striscione MAREA Village.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipP87aeyKd9iFCVgHg6fdX2430jc91FftHSEv0Pl?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/03-confronto-in-cerchio-960.webp",
+        "srcSmall": "/galleria-2026/03-confronto-in-cerchio-480.webp",
+        "alt": "Partecipanti riuniti in cerchio durante un incontro.",
+        "width": 960,
+        "height": 611,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipOVaX0ODGtTGL_u4bwt0GwAFjA_4f2wJqtAHgxc?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/04-tavolo-discussione-960.webp",
+        "srcSmall": "/galleria-2026/04-tavolo-discussione-480.webp",
+        "alt": "Un tavolo di discussione con la bandiera palestinese.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipNfZU02swqaL6IrxKPuKUK_WtnBO38sUJ2GnrmS?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/05-installazione-in-strada-960.webp",
+        "srcSmall": "/galleria-2026/05-installazione-in-strada-480.webp",
+        "alt": "Allestimento di un’installazione con manifesti in strada.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipO4OTv4r48zcC2BzDueleVL76fnpyWvIGU1mNFE?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/06-incontro-in-strada-960.webp",
+        "srcSmall": "/galleria-2026/06-incontro-in-strada-480.webp",
+        "alt": "Greta Thunberg e altre persone davanti a un’installazione in strada.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipPTq7WcNF3w4YvxQCSwc52xKOxgpxMdtdZvfRtJ?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/07-iniziativa-clima-960.webp",
+        "srcSmall": "/galleria-2026/07-iniziativa-clima-480.webp",
+        "alt": "Uno striscione sulle lotte climatiche durante un’iniziativa all’aperto.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipMcHOa5tqbGMnzhcv5bmitp_hhxudcwhrtpn6rK?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      },
+      {
+        "src": "/galleria-2026/08-partecipanti-960.webp",
+        "srcSmall": "/galleria-2026/08-partecipanti-480.webp",
+        "alt": "Partecipanti a un’iniziativa all’aperto.",
+        "width": 960,
+        "height": 640,
+        "fonte": "https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipOq1f-Mc9ALzSAOnj25Lkb6bILnEG82tgKMOxND?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB"
+      }
+    ]
   },
   "fonteRassegnaStampa": "https://drive.google.com/drive/folders/1qMjMfwj-fUOaX64d6TgyDb1X2N3ekxkQ",
   "raccoltaStampa": {

@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
 import archivio from '../src/lib/data/archivio-2026.json';
+import { slideIndex } from '../src/lib/gallery';
 
 describe('archivio 2026', () => {
   test('preserves the press source and all seven web/social sources', () => {
@@ -32,16 +33,28 @@ describe('archivio 2026', () => {
       expect(new URL(doc.fonte).hostname).toBe('drive.google.com');
     }
   });
+  test('slide navigation wraps without failing on an empty gallery', () => {
+    expect(slideIndex(0, -1, 8)).toBe(7);
+    expect(slideIndex(7, 1, 8)).toBe(0);
+    expect(slideIndex(2, 1, 8)).toBe(3);
+    expect(slideIndex(0, 1, 0)).toBe(0);
+  });
   test('gallery accepts only a verified album or described local photos', () => {
     if (archivio.galleria.albumUrl) {
       expect(new URL(archivio.galleria.albumUrl).protocol).toBe('https:');
     }
-    const photos = archivio.galleria.foto as { src: string; alt: string; width: number; height: number }[];
+    const photos = archivio.galleria.foto;
     for (const photo of photos) {
       expect(photo.src.startsWith('/') && !photo.src.startsWith('//')).toBe(true);
       expect(photo.alt.trim()).not.toBe('');
       expect(photo.width).toBeGreaterThan(0);
       expect(photo.height).toBeGreaterThan(0);
+      expect(new URL(photo.fonte).hostname).toBe('photos.google.com');
+      for (const src of [photo.src, photo.srcSmall]) {
+        const bytes = readFileSync(new URL('../static' + src, import.meta.url));
+        expect(bytes.subarray(0, 4).toString()).toBe('RIFF');
+        expect(bytes.subarray(8, 12).toString()).toBe('WEBP');
+      }
     }
   });
 });

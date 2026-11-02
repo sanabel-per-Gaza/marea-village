@@ -78,6 +78,10 @@ Oggetti vuoti e valori vuoti non generano link o sezioni. Non aggiungere contatt
 
 ## Foto della home
 
+La hero apre con la fotografia intera, subito sotto la navigazione. Logo, slogan e pulsanti sono raccolti nella fascia crema compatta sottostante: nessuna fascia blu simula un prolungamento del cielo e nessun testo copre la foto.
+
+Il logo della fascia usa derivati navy (`static/marea-logo-navy-{720,1200}.webp`), ottenuti dalla sagoma trasparente dell’originale senza ridisegnarla; il logo bianco resta invariato per le sezioni blu.
+
 La foto proposta da Mauro è servita localmente, senza dipendere da URL temporanei Google Photos:
 [fonte condivisa](https://photos.google.com/share/AF1QipO2lJVigmeIW15GszTFCPX05Em2YxjpJylmQYWyKZj_4eB_d2R3Gsrv9mFRbcLkKQ/photo/AF1QipMDSEOzLYq30HUiyuBLwPg1PgcB51t9Zhkf0w_E?key=NE1GRDcxM2tGbkNwX3pSTE9HNWJRN193YWw1emNB).
 

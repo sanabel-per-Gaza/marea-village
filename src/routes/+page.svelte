@@ -11,20 +11,20 @@
 
 <main>
   <header class="home-hero">
-    <div class="hero-inner">
-      <h1>
-        <span class="sr-only">MAREA Village</span>
-        <img src={`${base}/marea-logo-720.webp`} srcset={`${base}/marea-logo-720.webp 720w, ${base}/marea-logo-1200.webp 1200w`} sizes="(max-width: 640px) calc(100vw - 32px), 520px" alt="" width="1470" height="474" />
-      </h1>
-      <div class="hero-copy">
-        <p>La marea avanza…<br /><span>tuffati!</span></p>
+    <img class="home-photo" src={`${base}/marea-home-1280.webp`} srcset={`${base}/marea-home-720.webp 720w, ${base}/marea-home-1280.webp 1280w, ${base}/marea-home-2048.webp 2048w`} sizes="100vw" alt="Il palco di MAREA Village a Bagnoli, con lo striscione Mediterraneo, Arte, Resistenza, Ecologia." width="2048" height="921" fetchpriority="high" />
+    <div class="hero-band">
+      <div class="hero-inner">
+        <h1>
+          <span class="sr-only">MAREA Village</span>
+          <img src={`${base}/marea-logo-navy-720.webp`} srcset={`${base}/marea-logo-navy-720.webp 720w, ${base}/marea-logo-navy-1200.webp 1200w`} sizes="(max-width: 640px) min(256px, calc(100vw - 32px)), 288px" alt="" width="1470" height="474" />
+        </h1>
+        <p class="hero-claim">La marea avanza… <span>tuffati!</span></p>
         <div class="hero-actions">
           <a class="button button-red" href="#manifesto">Manifesto</a>
           <a class="button button-light" href="#info">Info</a>
         </div>
       </div>
     </div>
-    <img class="home-photo" src={`${base}/marea-home-1280.webp`} srcset={`${base}/marea-home-720.webp 720w, ${base}/marea-home-1280.webp 1280w, ${base}/marea-home-2048.webp 2048w`} sizes="100vw" alt="Il palco di MAREA Village a Bagnoli, con lo striscione Mediterraneo, Arte, Resistenza, Ecologia." width="2048" height="921" fetchpriority="high" />
   </header>
 
   <section class="editions" aria-labelledby="edizioni-title">
@@ -45,17 +45,18 @@
 
 <style>
   .content, .hero-inner { width: min(100%, var(--content)); margin-inline: auto; }
-  .home-hero { color: #fff; background: var(--blu); border-bottom: 0.75rem solid var(--rosso); }
+  .home-hero { color: var(--navy); background: var(--crema); }
   .home-photo { display: block; width: 100%; height: auto; }
-  .hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem; padding: 4rem var(--gutter); }
-  h1 { margin: 0; }
-  h1 img { display: block; width: 100%; height: auto; filter: drop-shadow(5px 5px 0 var(--rosso)); }
-  .hero-copy p { margin: 0 0 1.75rem; font: 800 clamp(2.5rem, 5.5vw, 5rem)/0.95 'Barlow Condensed', sans-serif; text-transform: uppercase; }
-  .hero-copy p span { color: #fff; }
+  .hero-band { border-top: 0.5rem solid var(--rosso); }
+  .hero-inner { display: grid; grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr) auto; align-items: center; gap: 2rem; padding: 2rem var(--gutter); }
+  h1 { min-width: 0; margin: 0; }
+  h1 img { display: block; width: 100%; max-width: 18rem; height: auto; filter: drop-shadow(3px 3px 0 var(--rosso)); }
+  .hero-claim { margin: 0; font: 800 clamp(1.75rem, 3.2vw, 2.5rem)/1.05 'Barlow Condensed', sans-serif; text-transform: uppercase; text-wrap: balance; }
+  .hero-claim span { color: var(--rosso); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
   .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.875rem 1.625rem; font: 800 1.25rem/1 'Barlow Condensed', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
   .button-red { color: #fff; background: var(--rosso); box-shadow: 5px 5px 0 var(--blu-scuro); }
-  .button-light { color: var(--blu-scuro); background: var(--crema); box-shadow: 5px 5px 0 var(--blu-scuro); }
+  .button-light { color: #fff; background: var(--blu-scuro); box-shadow: 5px 5px 0 var(--rosso); }
   .button:hover { color: var(--navy); background: var(--rosa); }
   .editions { padding: 4rem var(--gutter); }
   h2 { margin: 0 0 2rem; font: 800 clamp(2.5rem, 5vw, 4rem)/1 'Barlow Condensed', sans-serif; text-transform: uppercase; }
@@ -65,10 +66,16 @@
   h3 { margin: 0; font: 800 clamp(3rem, 6vw, 5rem)/1 'Barlow Condensed', sans-serif; }
   .edition-link span { font-size: 1.125rem; }
   .edition-link .edition-action { font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem 2rem; }
+    .hero-claim { grid-column: 1; }
+    .hero-actions { grid-column: 2; grid-row: 1 / span 2; }
+  }
   @media (max-width: 640px) {
-    .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; }
-    h1 img { max-width: 28rem; }
-    .hero-copy p { font-size: clamp(2.5rem, 10vw, 4rem); }
+    .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-block: 1.5rem; }
+    h1 img { max-width: 16rem; }
+    .hero-claim { font-size: 2rem; }
+    .hero-actions { grid-column: auto; grid-row: auto; }
     .editions { padding-block: 3rem; }
     .edition-link { grid-template-columns: max-content minmax(0, 1fr); gap: 0.75rem 1rem; }
     .edition-action { grid-column: 2; }

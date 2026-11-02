@@ -47,6 +47,30 @@ try {
         expect(await photo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);
         const photoUrl = await photo.evaluate((img) => img.currentSrc);
         expect(new URL(photoUrl).origin).toBe(new URL(url).origin);
+        // The real photograph leads the hero; branding is a distinct, compact cream band below.
+        const layout = await page.evaluate(() => {
+          const rect = (selector) => document.querySelector(selector).getBoundingClientRect();
+          const photo = rect('.home-photo');
+          return {
+            photoTop: photo.top,
+            photoBottom: photo.bottom,
+            photoRatio: photo.width / photo.height,
+            navBottom: rect('.site-nav').bottom,
+            bandTop: rect('.hero-band').top,
+            bandHeight: rect('.hero-band').height,
+            headingTop: rect('.hero-inner h1').top,
+            background: getComputedStyle(document.querySelector('.home-hero')).backgroundColor
+          };
+        });
+        expect(Math.abs(layout.photoTop - layout.navBottom)).toBeLessThanOrEqual(1);
+        expect(Math.abs(layout.bandTop - layout.photoBottom)).toBeLessThanOrEqual(1);
+        expect(layout.headingTop).toBeGreaterThan(layout.photoBottom);
+        expect(Math.abs(layout.photoRatio - 2048 / 921)).toBeLessThan(0.01);
+        expect(layout.background).toBe('rgb(250, 249, 238)');
+        expect(layout.bandHeight).toBeLessThan(width >= 1024 ? 240 : 400);
+        const logo = page.locator('.hero-inner h1 img');
+        expect(await logo.evaluate((img) => img.src)).toBe(new URL('marea-logo-navy-720.webp', url).href);
+        expect(await logo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);
         await expect(page.locator('#manifesto')).toBeAttached();
         await expect(page.locator('#info').getByRole('link', { name: 'info@mareavillage.it' })).toHaveAttribute('href', 'mailto:info@mareavillage.it');
         await expect(page.locator('#programma')).toHaveCount(0);
@@ -72,6 +96,7 @@ try {
       }
       if (width === 390 || width === 1440) {
         await page.evaluate(() => scrollTo(0, 0));
+        await page.mouse.move(1, 1);
         const name = route ? '2027' : 'home';
         await page.screenshot({ path: `${out}/${name}-${width}.png`, fullPage: true, animations: 'disabled' });
       }
